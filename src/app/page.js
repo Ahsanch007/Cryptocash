@@ -36,10 +36,10 @@ export default function Home() {
         </div>
 
         <Graph />
-        {/* <div id="roadmap">
+        <div id="roadmap">
 
           <Roadmap />
-        </div> */}
+        </div>
         <WhitePaper />
         <div id="team">
 

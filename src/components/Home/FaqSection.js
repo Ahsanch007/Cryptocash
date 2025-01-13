@@ -151,7 +151,7 @@ export const FaqSection = () => {
                 <div className="mt-5 max-w-[750px] mx-auto">
                     <ul className='flex justify-center p-0 m-0 list-none' data-aos="fade-up" data-aos-duration='1900'>
                         {faqTabs.map((item, index) => (
-                            <li key={index} className='px-[25px] border-r border-[#193f88]'>
+                            <li key={index} className='px-[25px] text-[10px] md:text-[18px] border-r border-[#193f88]'>
                                 <a
                                     onClick={() => handleTabClick(item.id)}
                                     className={`${activeTab === item.id ? 'text-[#ff69c9]' : 'text-[#193f88]'} hover:text-[#ff69c9] cursor-pointer transition-all`}

@@ -25,7 +25,7 @@ export const Header = () => {
         { id: 2, name: 'About', active: false, path: '#about', duration: '1200' },
         { id: 3, name: 'Why', active: false, path: '#why', duration: '1300' },
         { id: 4, name: 'Token', active: false, path: '#token', duration: '1400' },
-        // { id: 5, name: 'Roadmap', active: false, path: '', duration: '1500' },
+        { id: 5, name: 'Roadmap', active: false, path: '#roadmap', duration: '1500' },
         { id: 6, name: 'Team', active: false, path: '#team', duration: '1600' },
         { id: 7, name: 'Faq', active: false, path: '#faq', duration: '1700' },
         { id: 8, name: 'Contact', active: false, path: '#contact', duration: '1800' },

@@ -1,4 +1,5 @@
 import React from 'react'
+import ImageSlider from '../ui/ImageSlider'
 
 export const Roadmap = () => {
     return (
@@ -13,6 +14,7 @@ export const Roadmap = () => {
 
                     </p>
                 </div>
+                <ImageSlider />
 
 
             </div>
