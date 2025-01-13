@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+import Aos from 'aos';
+import React, { useEffect } from 'react'
 
 const data = [
     {
@@ -22,14 +24,17 @@ const data = [
 ];
 
 export const Why = () => {
+    useEffect(() => {
+        Aos.init();
+    }, []);
     return (
-        <div id='why' className='bg-[#fbfaff] py-[100px]'>
+        <div className='bg-[#fbfaff] py-[100px]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="text-center">
-                    <h3 className='text-[#0e082c] text-[26px] font-bold mb-[20px]'>
+                    <h3 className='text-[#0e082c] text-[26px] font-bold mb-[20px]' data-aos="fade-up" data-aos-duration='1000'>
                         Why Choose Us?
                     </h3>
-                    <p className='text-[#7a7a7a] mb-[30px] max-w-[555px] mx-auto'>
+                    <p className='text-[#7a7a7a] mb-[30px] max-w-[555px] mx-auto' data-aos="fade-up" data-aos-duration='1200'>
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animid est laborum.
                     </p>
                 </div>
@@ -38,6 +43,7 @@ export const Why = () => {
                         <div
                             key={index}
                             className="box_wrap rounded-[5px] bg-white text-center"
+                            data-aos="fade-up" data-aos-duration='1200'
                         >
                             <img
                                 src={item.img}

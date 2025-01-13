@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+import Aos from 'aos';
+import React, { useEffect } from 'react'
 import { FaCcMastercard, FaCcVisa, FaLongArrowAltRight, FaPaypal } from 'react-icons/fa';
 import { FaBitcoinSign } from 'react-icons/fa6';
 
@@ -7,28 +9,39 @@ const saleData = [
     {
         title: "Private Pre-Sale",
         date: "June 20, 2018",
+        duration: '1200'
     },
     {
         title: "Pre-Sale",
         date: "July 18, 2018",
+        duration: '1300'
+
     },
     {
         title: "Crowdsale",
         date: "February 20, 2018",
+        duration: '1400'
+
     },
 ];
 const saleData2 = [
     {
         title: "Low - High 24h",
         date: "$ 6,455.83 - $ 7,071.42",
+        duration: '1200'
+
     },
     {
         title: "Total Token Sale",
         date: "855,000 BCC (8.2%)",
+        duration: '1300'
+
     },
     {
         title: "Acceptable Currency",
         date: "BTC, ETH, LTC",
+        duration: '1400'
+
     },
 ];
 
@@ -38,49 +51,66 @@ const stages = [
         duration: "Aug 2 - Sep 15",
         discount: "95%",
         isDisabled: true,
+        duration: '1400'
+
     },
     {
         stage: "Stage 2",
         duration: "Sep 16 - Sep 23",
         discount: "60%",
         isDisabled: true,
+        duration: '1500'
+
     },
     {
         stage: "Stage 3",
         duration: "Sep 24 - Oct 5",
         discount: "25%",
         isDisabled: false,
+        duration: '1600'
+
     },
     {
         stage: "Stage 4",
         duration: "Oct 5 - Oct 16",
         discount: "10%",
         isDisabled: false,
+        duration: '1700'
+
     },
     {
         stage: "Stage 5",
         duration: "Oct 17 - Nov 25",
         discount: "5%",
         isDisabled: false,
+        duration: '1800'
+
     },
     {
         stage: "Stage 6",
         duration: "Nov 26 - Dec 31",
         discount: "0%",
         isDisabled: false,
+        duration: '1900'
+
     },
 ];
 
 export const Token = () => {
+    useEffect(() => {
+        Aos.init();
+    }, []);
     return (
         <div id='token' className='py-[100px]' style={{ background: 'linear-gradient(to right, #193f88 0%,#0e082c 99%)' }}>
             <div className="px-[15px] max-w-[1170px] mx-auto">
-                <div className="text-center">
-                    <h3 className='  text-[26px] font-bold mb-[20px]'>
+                <div className="text-center" >
+                    <h3 className='  text-[26px] font-bold mb-[20px]' data-aos="fade-up" data-aos-duration='1000'
+                    >
                         Token Structure
 
                     </h3>
-                    <p className=' mb-[30px] text-white max-w-[555px] mx-auto'>
+                    <p className=' mb-[30px] text-white max-w-[555px] mx-auto' data-aos="fade-up" data-aos-duration='1200'
+                    >
                         Join the industry leaders to discuss where the markets are heading. We accept token payments.
                     </p>
                 </div>
@@ -90,16 +120,18 @@ export const Token = () => {
                             <div
                                 key={index}
                                 className="py-[20px] px-[15px] text-white mt-[20px] bg-[#ffffff1a] text-center"
+                                data-aos="fade-up" data-aos-duration={item.duration}
+
                             >
                                 <h5 className="font-medium text-[20px]">{item.title}</h5>
                                 <span>{item.date}</span>
                             </div>
                         ))}
                     </div>
-                    <div className="col-span-12 lg:col-span-6 lg:px-[15px]">
+                    <div className="col-span-12 lg:col-span-6 lg:px-[15px]" data-aos="zoom-in" data-aos-duration='1600'>
                         <div className="bg-[#ffffff1a] text-center lg:p-[35px] p-[15px]">
                             <div className="banner_text tk_counter_inner">
-                                <div className="rounded-[9px] p-0 transparent_bg shadow-none">
+                                <div data-aos="fade-up" data-aos-duration='1200' className="rounded-[9px] p-0 transparent_bg shadow-none">
                                     <span className="counter_box">
                                         <span id="days" className="tk_counter days">00 </span>
                                         <span className="tk_text">Days</span>
@@ -121,7 +153,7 @@ export const Token = () => {
                                     </span>
                                 </div>
 
-                                <div className="progress  ">
+                                <div className="progress  " data-aos="fade-up" data-aos-duration='1300'>
                                     <div className="progress-bar progress-bar-striped gradient w-[46%]">
                                         46%
                                     </div>
@@ -136,7 +168,7 @@ export const Token = () => {
                                         Soft-caps
                                     </span>
                                 </div>
-                                <div className="flex justify-center my-[15px]">
+                                <div className="flex justify-center my-[15px]" data-aos="fade-up" data-aos-duration='1400'>
 
                                     <button className="btn btnDefault rounded-[40px] flex items-center gap-2 ">
                                         Buy Tokens
@@ -168,6 +200,7 @@ export const Token = () => {
                             <div
                                 key={index}
                                 className="py-[20px] px-[15px] text-white mt-[20px] bg-[#ffffff1a] text-center"
+                                data-aos="fade-up" data-aos-duration={item.duration}
                             >
                                 <h5 className="font-medium text-[20px]">{item.title}</h5>
                                 <span>{item.date}</span>
@@ -177,7 +210,7 @@ export const Token = () => {
                 </div>
                 <div className="h-[100px]"></div>
                 <div className="text-center">
-                    <h1 className='text-[26px] font-bold  text-white mb-[30px]'>
+                    <h1 className='text-[26px] font-bold  text-white mb-[30px]' data-aos="fade-up" data-aos-duration='1300'>
                         Bonus Stages
                     </h1>
                 </div>
@@ -186,6 +219,8 @@ export const Token = () => {
                         <div
                             key={index}
                             className="col-span-12 xl:col-span-2 lg:col-span-3 md:col-span-4"
+                            data-aos="fade-up" data-aos-duration={stage.duration}
+
                         >
                             <div className="bg-[#ffffff1a] text-center mt-[20px] rounded-[5px]">
                                 <div className="p-[10px] border-b border-[#fff3]">

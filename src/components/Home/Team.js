@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+import Aos from 'aos';
+import React, { useEffect } from 'react'
 import { FaFacebookF, FaLinkedinIn, FaPinterestP, FaTwitter } from 'react-icons/fa'
 
 
@@ -13,6 +15,7 @@ const teamMembers = [
             { url: '#', label: 'LinkedIn', icon: <FaLinkedinIn /> },
             { url: '#', label: 'Pinterest', icon: <FaPinterestP /> },
         ],
+        duration: '1000'
     },
     {
         name: 'Jessica Bell',
@@ -24,6 +27,8 @@ const teamMembers = [
             { url: '#', label: 'LinkedIn', icon: <FaLinkedinIn /> },
             { url: '#', label: 'Pinterest', icon: <FaPinterestP /> },
         ],
+        duration: '1200'
+
     },
     {
         name: 'Alvaro Martin',
@@ -35,6 +40,8 @@ const teamMembers = [
             { url: '#', label: 'LinkedIn', icon: <FaLinkedinIn /> },
             { url: '#', label: 'Pinterest', icon: <FaPinterestP /> },
         ],
+        duration: '1400'
+
     },
     {
         name: 'Maria Willium',
@@ -46,14 +53,16 @@ const teamMembers = [
             { url: '#', label: 'LinkedIn', icon: <FaLinkedinIn /> },
             { url: '#', label: 'Pinterest', icon: <FaPinterestP /> },
         ],
+        duration: '1600'
+
     },
 ];
 
 
 
-const TeamMemberCard = ({ name, title, imgSrc, socialLinks }) => {
+const TeamMemberCard = ({ name, title, imgSrc, socialLinks, duration }) => {
     return (
-        <div className="bg-white rounded-[5px] p-[20px]">
+        <div className="bg-white rounded-[5px] p-[20px]" data-aos="fade-up" data-aos-duration={duration} >
             <div className="text-center relative">
                 <img
                     src={imgSrc}
@@ -92,8 +101,11 @@ const socialLinkss = [
     { url: '#', label: 'Pinterest', icon: <FaPinterestP /> },
 ]
 export const Team = () => {
+    useEffect(() => {
+        Aos.init();
+    }, []);
     return (
-        <div id='team' className='py-[100px] bg-[#fbfaff]'>
+        <div className='py-[100px] bg-[#fbfaff]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="text-center">
                     <h3 className='  text-[26px] text-[#0e082c] font-bold mb-[20px]'>
@@ -119,7 +131,7 @@ export const Team = () => {
                     <div className="lg:col-span-9 col-span-12">
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-[30px]">
 
-                            <div className="bg-white rounded-[5px] p-[20px]">
+                            <div className="bg-white rounded-[5px] p-[20px]" data-aos="fade-up" data-aos-duration='2000'>
                                 <div className="text-center relative">
                                     <img
                                         src='/assets/placeholder9.png'
@@ -149,7 +161,7 @@ export const Team = () => {
                                     <p>Invester</p>
                                 </div>
                             </div>
-                            <div className="bg-white rounded-[5px] p-[20px]">
+                            <div className="bg-white rounded-[5px] p-[20px]" data-aos="fade-up" data-aos-duration='2200'>
                                 <div className="text-center relative">
                                     <img
                                         src='/assets/placeholder9.png'
@@ -179,7 +191,7 @@ export const Team = () => {
                                     <p>Invester</p>
                                 </div>
                             </div>
-                            <div className="bg-white rounded-[5px] p-[20px]">
+                            <div className="bg-white rounded-[5px] p-[20px]" data-aos="fade-up" data-aos-duration='2400'>
                                 <div className="text-center relative">
                                     <img
                                         src='/assets/placeholder9.png'
