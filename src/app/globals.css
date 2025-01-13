@@ -111,7 +111,7 @@ a {
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  z-index: -1;
+  /* z-index: -1; */
 }
 .token_bg {
   background-image: url("../../public/assets/token_bg2.png");
