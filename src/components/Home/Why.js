@@ -28,7 +28,7 @@ export const Why = () => {
         Aos.init();
     }, []);
     return (
-        <div className='bg-[#fbfaff] py-[100px]'>
+        <div className='bg-[#fbfaff] py-[30px] lg:py-[100px]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="text-center">
                     <h3 className='text-[#0e082c] text-[26px] font-bold mb-[20px]' data-aos="fade-up" data-aos-duration='1000'>

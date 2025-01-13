@@ -111,7 +111,7 @@ export const Token = () => {
         Aos.init();
     }, []);
     return (
-        <div id='token' className='py-[100px]' style={{ background: 'linear-gradient(to right, #193f88 0%,#0e082c 99%)' }}>
+        <div id='token' className='py-[30px] lg:py-[100px]' style={{ background: 'linear-gradient(to right, #193f88 0%,#0e082c 99%)' }}>
             <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
 
             <div className="px-[15px] max-w-[1170px] mx-auto">

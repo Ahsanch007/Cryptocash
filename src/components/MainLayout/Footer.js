@@ -24,7 +24,7 @@ export const Footer = () => {
     }, []);
     return (
         <div className='bg-gradient-2'>
-            <div className="py-[100px]">
+            <div className="py-[30px] lg:py-[100px]">
                 <div className="px-[15px] max-w-[1170px] mx-auto">
                     <div className="grid grid-cols-12 gap-[30px]">
                         <div className="col-span-12 lg:col-span-4">

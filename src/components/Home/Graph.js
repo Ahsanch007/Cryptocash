@@ -7,7 +7,7 @@ export const Graph = () => {
         Aos.init();
     }, []);
     return (
-        <div className='py-[100px] bg-white overflow-hidden'>
+        <div className='py-[30px] lg:py-[100px] bg-white overflow-hidden'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     <div className="">

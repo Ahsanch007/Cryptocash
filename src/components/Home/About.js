@@ -8,7 +8,7 @@ export const About = () => {
         Aos.init();
     }, []);
     return (
-        <div className='bg-white py-[100px]'>
+        <div className='bg-white py-[30px] lg:py-[100px]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2  ">
                     <div className="px-[15px]">
@@ -16,7 +16,7 @@ export const About = () => {
                             <img src="/assets/about_img10.png" className='max-w-full mx-auto' alt="" />
                         </div>
                     </div>
-                    <div className="px-[15px]">
+                    <div className="px-[15px] text-center pt-5 lg:pl-0 md:text-start ">
                         <h4 data-aos="fade-up" data-aos-duration='1400' className='text-[26px] text-[#0e082c] font-bold mb-[20px] '>
                             About The Cryptocash
                         </h4>

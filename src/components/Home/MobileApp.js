@@ -26,7 +26,7 @@ export const MobileApp = () => {
         Aos.init();
     }, []);
     return (
-        <div className='bg-custom-gradient overflow-hidden relative py-[100px]'>
+        <div className='bg-custom-gradient overflow-hidden relative py-[30px] lg:py-[100px]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="grid grid-cols-12 gap-[30px]">
                     <div className="col-span-12 lg:col-span-5 lg:order-1">

@@ -105,7 +105,7 @@ export const Team = () => {
         Aos.init();
     }, []);
     return (
-        <div className='py-[100px] bg-[#fbfaff]'>
+        <div className='py-[30px] lg:py-[100px] bg-[#fbfaff]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="text-center">
                     <h3 className='  text-[26px] text-[#0e082c] font-bold mb-[20px]'>

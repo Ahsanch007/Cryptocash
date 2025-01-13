@@ -34,96 +34,22 @@ const social = [
 ]
 
 export const HomeSection = () => {
-    // useEffect(() => {
-    //     const canvasAnimation = () => {
-    //         const w = window.innerWidth;
-    //         const h = window.innerHeight;
-    //         const canvas = document.getElementById('banner_canvas');
-    //         const ctx = canvas.getContext('2d');
-    //         const arc = 200;
-    //         const size = 7;
-    //         const speed = 20;
-    //         const colors = ['#FFC56E', '#FF6CC6', '#4241B8', '#F69040', '#0EADC9'];
-    //         const mouse = { x: 0, y: 0 };
-    //         const parts = [];
-
-    //         canvas.width = w;
-    //         canvas.height = h;
-
-    //         for (let i = 0; i < arc; i++) {
-    //             parts.push({
-    //                 x: Math.ceil(Math.random() * w),
-    //                 y: Math.ceil(Math.random() * h),
-    //                 toX: Math.random() * 5 - 1,
-    //                 toY: Math.random() * 2 - 1,
-    //                 c: colors[Math.floor(Math.random() * colors.length)],
-    //                 size: Math.random() * size,
-    //             });
-    //         }
-
-    //         const DistanceBetween = (p1, p2) => {
-    //             const dx = p2.x - p1.x;
-    //             const dy = p2.y - p1.y;
-    //             return Math.sqrt(dx * dx + dy * dy);
-    //         };
-
-    //         const drawParticles = () => {
-    //             ctx.clearRect(0, 0, w, h);
-    //             parts.forEach((li) => {
-    //                 const distanceFactor = Math.max(
-    //                     Math.min(15 - DistanceBetween(mouse, li) / 10, 10),
-    //                     1
-    //                 );
-    //                 ctx.beginPath();
-    //                 ctx.arc(li.x, li.y, li.size * distanceFactor, 0, Math.PI * 2, false);
-    //                 ctx.fillStyle = li.c;
-    //                 ctx.fill();
-
-    //                 li.x += li.toX * (speed * 0.05);
-    //                 li.y += li.toY * (speed * 0.05);
-
-    //                 if (li.x > w) li.x = 0;
-    //                 if (li.y > h) li.y = 0;
-    //                 if (li.x < 0) li.x = w;
-    //                 if (li.y < 0) li.y = h;
-    //             });
-
-    //             requestAnimationFrame(drawParticles);
-    //         };
-
-    //         const onMouseMove = (e) => {
-    //             mouse.x = e.clientX;
-    //             mouse.y = e.clientY;
-    //         };
-
-    //         canvas.addEventListener('mousemove', onMouseMove);
-    //         drawParticles();
-
-    //         // Cleanup on component unmount
-    //         return () => {
-    //             canvas.removeEventListener('mousemove', onMouseMove);
-    //         };
-    //     };
-
-    //     canvasAnimation();
-    // }, []);
-
     useEffect(() => {
         const canvasAnimation = () => {
-            const w = window.innerWidth; // Get the window width
-            const h = window.innerHeight; // Get the window height
-            const canvas = document.getElementById('banner_canvas'); // Get the canvas element
-            const ctx = canvas.getContext('2d'); // Get the 2D context of the canvas
-            const arc = 200; // Number of particles
-            const size = 7; // Max size of the particles
-            const speed = 20; // Speed of the particles
-            const colors = ['#FFC56E', '#FF6CC6', '#4241B8', '#F69040', '#0EADC9']; // Particle colors
-            const parts = []; // Array to hold particle data
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const canvas = document.getElementById('banner_canvas');
+            const ctx = canvas.getContext('2d');
+            const arc = 200;
+            const size = 7;
+            const speed = 20;
+            const colors = ['#FFC56E', '#FF6CC6', '#4241B8', '#F69040', '#0EADC9'];
+            const mouse = { x: 0, y: 0 };
+            const parts = [];
 
-            canvas.width = w; // Set canvas width
-            canvas.height = h; // Set canvas height
+            canvas.width = w;
+            canvas.height = h;
 
-            // Initialize particles with random positions and properties
             for (let i = 0; i < arc; i++) {
                 parts.push({
                     x: Math.ceil(Math.random() * w),
@@ -135,46 +61,120 @@ export const HomeSection = () => {
                 });
             }
 
-            // Function to calculate distance between two points
             const DistanceBetween = (p1, p2) => {
                 const dx = p2.x - p1.x;
                 const dy = p2.y - p1.y;
                 return Math.sqrt(dx * dx + dy * dy);
             };
 
-            // Function to draw particles and animate them
             const drawParticles = () => {
-                ctx.clearRect(0, 0, w, h); // Clear canvas for next frame
-
-                // Loop through each particle to animate it
+                ctx.clearRect(0, 0, w, h);
                 parts.forEach((li) => {
-                    // Draw the particle
+                    const distanceFactor = Math.max(
+                        Math.min(15 - DistanceBetween(mouse, li) / 10, 10),
+                        1
+                    );
                     ctx.beginPath();
-                    ctx.arc(li.x, li.y, li.size, 0, Math.PI * 2, false);
-                    ctx.fillStyle = li.c; // Set color
-                    ctx.fill(); // Fill the particle
+                    ctx.arc(li.x, li.y, li.size * distanceFactor, 0, Math.PI * 2, false);
+                    ctx.fillStyle = li.c;
+                    ctx.fill();
 
-                    // Update the particle's position
                     li.x += li.toX * (speed * 0.05);
                     li.y += li.toY * (speed * 0.05);
 
-                    // Wrap particles around the canvas if they go out of bounds
                     if (li.x > w) li.x = 0;
                     if (li.y > h) li.y = 0;
                     if (li.x < 0) li.x = w;
                     if (li.y < 0) li.y = h;
                 });
 
-                // Request the next frame to keep animating
                 requestAnimationFrame(drawParticles);
             };
 
-            // Start the particle animation
+            const onMouseMove = (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            };
+
+            canvas.addEventListener('mousemove', onMouseMove);
             drawParticles();
+
+            // Cleanup on component unmount
+            return () => {
+                canvas.removeEventListener('mousemove', onMouseMove);
+            };
         };
 
         canvasAnimation();
     }, []);
+
+    // useEffect(() => {
+    //     const canvasAnimation = () => {
+    //         const w = window.innerWidth; // Get the window width
+    //         const h = window.innerHeight; // Get the window height
+    //         const canvas = document.getElementById('banner_canvas'); // Get the canvas element
+    //         const ctx = canvas.getContext('2d'); // Get the 2D context of the canvas
+    //         const arc = 200; // Number of particles
+    //         const size = 7; // Max size of the particles
+    //         const speed = 20; // Speed of the particles
+    //         const colors = ['#FFC56E', '#FF6CC6', '#4241B8', '#F69040', '#0EADC9']; // Particle colors
+    //         const parts = []; // Array to hold particle data
+
+    //         canvas.width = w; // Set canvas width
+    //         canvas.height = h; // Set canvas height
+
+    //         // Initialize particles with random positions and properties
+    //         for (let i = 0; i < arc; i++) {
+    //             parts.push({
+    //                 x: Math.ceil(Math.random() * w),
+    //                 y: Math.ceil(Math.random() * h),
+    //                 toX: Math.random() * 5 - 1,
+    //                 toY: Math.random() * 2 - 1,
+    //                 c: colors[Math.floor(Math.random() * colors.length)],
+    //                 size: Math.random() * size,
+    //             });
+    //         }
+
+    //         // Function to calculate distance between two points
+    //         const DistanceBetween = (p1, p2) => {
+    //             const dx = p2.x - p1.x;
+    //             const dy = p2.y - p1.y;
+    //             return Math.sqrt(dx * dx + dy * dy);
+    //         };
+
+    //         // Function to draw particles and animate them
+    //         const drawParticles = () => {
+    //             ctx.clearRect(0, 0, w, h); // Clear canvas for next frame
+
+    //             // Loop through each particle to animate it
+    //             parts.forEach((li) => {
+    //                 // Draw the particle
+    //                 ctx.beginPath();
+    //                 ctx.arc(li.x, li.y, li.size, 0, Math.PI * 2, false);
+    //                 ctx.fillStyle = li.c; // Set color
+    //                 ctx.fill(); // Fill the particle
+
+    //                 // Update the particle's position
+    //                 li.x += li.toX * (speed * 0.05);
+    //                 li.y += li.toY * (speed * 0.05);
+
+    //                 // Wrap particles around the canvas if they go out of bounds
+    //                 if (li.x > w) li.x = 0;
+    //                 if (li.y > h) li.y = 0;
+    //                 if (li.x < 0) li.x = w;
+    //                 if (li.y < 0) li.y = h;
+    //             });
+
+    //             // Request the next frame to keep animating
+    //             requestAnimationFrame(drawParticles);
+    //         };
+
+    //         // Start the particle animation
+    //         drawParticles();
+    //     };
+
+    //     canvasAnimation();
+    // }, []);
     useEffect(() => {
         Aos.init();
     }, []);
