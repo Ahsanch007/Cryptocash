@@ -25,7 +25,7 @@ export const Header = () => {
         { id: 2, name: 'About', active: false, path: '#about', duration: '1200' },
         { id: 3, name: 'Why', active: false, path: '#why', duration: '1300' },
         { id: 4, name: 'Token', active: false, path: '#token', duration: '1400' },
-        { id: 5, name: 'Roadmap', active: false, path: '', duration: '1500' },
+        // { id: 5, name: 'Roadmap', active: false, path: '', duration: '1500' },
         { id: 6, name: 'Team', active: false, path: '#team', duration: '1600' },
         { id: 7, name: 'Faq', active: false, path: '#faq', duration: '1700' },
         { id: 8, name: 'Contact', active: false, path: '#contact', duration: '1800' },
@@ -53,7 +53,7 @@ export const Header = () => {
         Aos.init();
     }, []);
     return (
-        <div className={`md:fixed w-full absolute top-0 right-0 left-0 z-[1030] py-[10px] ${scrolled ? 'lg:py-[10px] bg-[#193d85]  ' : 'lg:py-[25px]  '}  transition-all `}>
+        <div className={`md:fixed w-full absolute top-0 right-0 left-0 z-[9] py-[10px] ${scrolled ? 'lg:py-[10px] bg-[#193d85]  ' : 'lg:py-[25px]  '}  transition-all `}>
             <div className="px-[15px] relative">
                 <div className="flex justify-between items-center">
                     <div className="logo" data-aos="fade-down" data-aos-duration='1000'>

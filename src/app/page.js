@@ -13,6 +13,7 @@ import { Footer } from "@/components/MainLayout/Footer";
 import { Layout } from "@/components/MainLayout/layout";
 import { FaChevronUp } from "react-icons/fa";
 import 'aos/dist/aos.css';
+import { Roadmap } from "@/components/Home/Roadmap";
 
 export default function Home() {
   return (
@@ -35,6 +36,10 @@ export default function Home() {
         </div>
 
         <Graph />
+        {/* <div id="roadmap">
+
+          <Roadmap />
+        </div> */}
         <WhitePaper />
         <div id="team">
 

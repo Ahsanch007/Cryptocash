@@ -1,8 +1,9 @@
 'use client'
 import Aos from 'aos';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaCcMastercard, FaCcVisa, FaLongArrowAltRight, FaPaypal } from 'react-icons/fa';
 import { FaBitcoinSign } from 'react-icons/fa6';
+import Modal from '../ui/Modal';
 
 
 const saleData = [
@@ -97,11 +98,22 @@ const stages = [
 ];
 
 export const Token = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
     useEffect(() => {
         Aos.init();
     }, []);
     return (
         <div id='token' className='py-[100px]' style={{ background: 'linear-gradient(to right, #193f88 0%,#0e082c 99%)' }}>
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
+
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="text-center" >
                     <h3 className='  text-[26px] font-bold mb-[20px]' data-aos="fade-up" data-aos-duration='1000'
@@ -170,7 +182,7 @@ export const Token = () => {
                                 </div>
                                 <div className="flex justify-center my-[15px]" data-aos="fade-up" data-aos-duration='1400'>
 
-                                    <button className="btn btnDefault rounded-[40px] flex items-center gap-2 ">
+                                    <button onClick={handleOpenModal} className="btn btnDefault rounded-[40px] flex items-center gap-2 ">
                                         Buy Tokens
                                         <FaLongArrowAltRight className='inline-block ml-2.5' />
 
