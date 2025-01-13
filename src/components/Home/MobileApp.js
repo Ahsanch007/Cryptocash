@@ -29,7 +29,7 @@ export const MobileApp = () => {
         <div className='bg-custom-gradient overflow-hidden relative py-[30px] lg:py-[100px]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="grid grid-cols-12 gap-[30px]">
-                    <div className="col-span-12 lg:col-span-5 lg:order-1">
+                    <div className="col-span-12 lg:col-span-5 order-2 lg:order-1">
                         <div data-aos="fade-right" data-aos-duration='1400'>
                             <img src="/assets/mobile_app8.png" className='max-w-full h-auto w-full' alt="" />
                         </div>
@@ -55,14 +55,14 @@ export const MobileApp = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <div className="flex gap-3">
+                            <div className="flex gap-3   ">
                                 <button data-aos="fade-up" data-aos-duration='1600' className='btn flex items-center gap-3 bg-gradient-custom2 rounded-[40px] font-medium'>
                                     <IoLogoAndroid className='text-[25px]' />
                                     Google Store
                                 </button>
                                 <button data-aos="fade-up" data-aos-duration='1800' className='btn bg-gradient-custom2  flex items-center gap-3 rounded-[40px] font-medium'>
                                     <FaApple className='text-[25px]' />
-                                    Google Store
+                                    App Store
                                 </button>
                             </div>
                         </div>
