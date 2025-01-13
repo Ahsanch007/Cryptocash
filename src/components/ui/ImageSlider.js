@@ -1,7 +1,7 @@
-// components/ImageSlider.js
-'use client'
+'use client';
 import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { MdClose } from "react-icons/md"; // React Icon for close button
 
 const images = [
     "/assets/image1.png", // Replace with your image paths
@@ -11,6 +11,7 @@ const images = [
 
 const ImageSlider = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
@@ -22,6 +23,21 @@ const ImageSlider = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
         );
+    };
+
+    const openModal = (index) => {
+        setCurrentIndex(index);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleBackdropClick = (e) => {
+        if (e.target.id === "modal-backdrop") {
+            closeModal();
+        }
     };
 
     return (
@@ -36,7 +52,8 @@ const ImageSlider = () => {
                 {images.map((image, index) => (
                     <div
                         key={index}
-                        className="w-full shrink-0"
+                        className="w-full shrink-0 cursor-pointer"
+                        onClick={() => openModal(index)}
                     >
                         <img
                             src={image}
@@ -62,6 +79,30 @@ const ImageSlider = () => {
             >
                 <FaArrowRight size={20} />
             </button>
+
+            {/* Fullscreen Modal */}
+            {isModalOpen && (
+                <div
+                    id="modal-backdrop"
+                    className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+                    onClick={handleBackdropClick}
+                >
+                    <div className="relative">
+                        <img
+                            src={images[currentIndex]}
+                            alt={`Fullscreen Slide ${currentIndex + 1}`}
+                            className="max-w-full h-[500px] object-contain"
+                        />
+                        {/* Close Button */}
+                        <button
+                            onClick={closeModal}
+                            className="absolute top-4 right-4 text-[#0e082c] text-3xl hover:text-gray-300"
+                        >
+                            <MdClose size={20} />
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
