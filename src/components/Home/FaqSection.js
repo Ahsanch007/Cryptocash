@@ -163,6 +163,7 @@ export const FaqSection = () => {
                     </ul>
 
                     <div
+                        data-aos="fade-up" data-aos-duration='500'
                         key={contentKey} // Change the key to trigger a re-render
                         className="faq-tabs-content mt-[30px] transition-all duration-3000 ease-in-out fade-up"
                     >

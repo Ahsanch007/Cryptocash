@@ -22,7 +22,7 @@ const AccordionItem = ({ title, content, isOpen, toggle }) => {
         Aos.init();
     }, []);
     return (
-        <div className={`border-[#193f88] ${isOpen ? 'border rounded-[5px] mt-3' : 'border-b'}`} data-aos="fade-up" data-aos-duration='1600'>
+        <div className={`border-[#193f88] ${isOpen ? 'border rounded-[5px] mt-3' : 'border-b'}`} >
             <button
                 onClick={handleToggle}
                 className="flex gap-2 relative items-center text-[#193f88] w-full p-[15px] text-left text-[18px] font-semibold focus:outline-none"
