@@ -91,7 +91,7 @@ const ImageSlider = () => {
                         <img
                             src={images[currentIndex]}
                             alt={`Fullscreen Slide ${currentIndex + 1}`}
-                            className="max-w-full h-[500px] object-contain"
+                            className="max-w-[700px] h-[600px]  2xl:h-[800px] object-contain"
                         />
                         {/* Close Button */}
                         <button
