@@ -1,6 +1,7 @@
 'use client'
 import Aos from 'aos';
 import React, { useEffect } from 'react'
+import PieChartWithLabels from '../ui/PieChart';
 
 export const Graph = () => {
     useEffect(() => {
@@ -16,8 +17,9 @@ export const Graph = () => {
                                 Token Sale Proceeds
                             </h3>
                         </div>
-                        <div className="pt-[30px]" data-aos="fade-left" data-aos-duration='1300'>
-                            <img src="/assets/sale-proceeds7.png" className='max-w-full h-auto mx-auto' alt="" />
+                        <div className="pt-[30px] " data-aos="fade-left" data-aos-duration='1300'>
+                            {/* <img src="/assets/sale-proceeds7.png" className='max-w-full h-auto mx-auto' alt="" /> */}
+                            <PieChartWithLabels />
                         </div>
                     </div>
                     <div className="">
@@ -28,7 +30,9 @@ export const Graph = () => {
                             </h3>
                         </div>
                         <div className="pt-[30px]" data-aos="fade-right" data-aos-duration='1300'>
-                            <img src="/assets/distribution7.png" className='max-w-full h-auto mx-auto' alt="" />
+                            {/* <img src="/assets/distribution7.png" className='max-w-full h-auto mx-auto' alt="" /> */}
+                            <PieChartWithLabels />
+
                         </div>
                     </div>
                 </div>
