@@ -46,10 +46,10 @@ export const Timer = () => {
                                 46%
                             </div>
                             <div className="progress_label bg-white left-[30%]">
-                                <strong> 46,000 BCC </strong>
+                                <strong> 46,000 MOT </strong>
                             </div>
                             <div className="progress_label bg-white left-[75%]">
-                                <strong>  90,000 BCC  </strong>
+                                <strong>  90,000 MOT  </strong>
                             </div>
                             <span className="progress_min_val">Sale Raised</span>
                             <span className='progress_max_val'>
@@ -64,7 +64,7 @@ export const Timer = () => {
 
                             </button>
                         </div>
-                        <ul className="flex justify-center list-none">
+                        {/* <ul className="flex justify-center list-none">
                             <li className='px-[5px]'>
                                 <FaCcVisa className='w-[20px] h-auto' />
                             </li>
@@ -77,7 +77,7 @@ export const Timer = () => {
                             <li className='px-[5px]'>
                                 <FaPaypal className='w-[20px] h-auto' />
                             </li>
-                        </ul>
+                        </ul> */}
 
 
                     </div>

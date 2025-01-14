@@ -31,14 +31,14 @@ export const MobileApp = () => {
                 <div className="rounded-3xl relative gradient-bg p-8 outline outline-2 outline-white/[0.04] lg:p-[72px] ">
                     <div className="flex flex-col lg:flex-row gap-4 lg:gap-0">
                         <div className="flex flex-col gap-6 lg:w-[600px] lg:gap-8">
-                            <h3 className="font-rubik text-2xl !leading-[normal] max-lg:text-left lg:text-[40px]">
+                            <h3 className="font-rubik text-2xl text-white !leading-[normal] max-lg:text-left lg:text-[40px]">
                                 Download our App Now!
                             </h3>
-                            <p className='text-sm text-white opacity-[0.88] lg:text-base'>
+                            <p className='text-sm text-white lg:text-base'>
                                 Join the ranks of true trivia champions and quench your thirst for knowledge with Masters of Trivia – the ultimate quiz app designed to test your wits and unlock a world of fun facts.
 
                             </p>
-                            <p className="text-sm text-white leading-normal opacity-[0.88] lg:text-base">
+                            <p className="text-sm text-white leading-normal lg:text-base">
                                 Challenge your brain, compete with friends, and discover fascinating tidbits from diverse categories. Don't miss out on the exhilarating experience that awaits you – get started now!
                             </p>
                             <div className="flex gap-6 max-lg:flex-wrap">

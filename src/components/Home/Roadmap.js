@@ -11,7 +11,7 @@ export const Roadmap = () => {
                         Roadmap
                     </h3>
                     <p className=' mb-[30px] text-white  max-w-[555px] mx-auto'>
-                        The use of cryptocurrencies has become more widespread, The origin platform idea. Development of the concept and business plan.
+                        After a 16-year hiatus, Masters of Trivia made its comeback in 2024, blending Web2 and Web3 technologies to create a groundbreaking trivia experience.
 
                     </p>
                 </div>

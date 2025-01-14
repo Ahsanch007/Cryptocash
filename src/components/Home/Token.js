@@ -10,38 +10,38 @@ const saleData = [
     {
         title: "Private Pre-Sale",
         date: "June 20, 2018",
-        duration: '1200'
+        duration: '10 Days'
     },
     {
-        title: "Pre-Sale",
+        title: "Public Pre-Sale",
         date: "July 18, 2018",
-        duration: '1300'
+        duration: '20 Days'
 
     },
-    {
-        title: "Crowdsale",
-        date: "February 20, 2018",
-        duration: '1400'
+    // {
+    //     title: "Crowdsale",
+    //     date: "February 20, 2018",
+    //     duration: '1400'
 
-    },
+    // },
 ];
 const saleData2 = [
     {
         title: "Low - High 24h",
-        date: "$ 6,455.83 - $ 7,071.42",
-        duration: '1200'
+        date: "$ 0.02 - $ 0.1",
+        duration: '30'
 
     },
     {
         title: "Total Token Sale",
-        date: "855,000 BCC (8.2%)",
-        duration: '1300'
+        date: "100,000,000 MOT (20%)",
+        duration: '30'
 
     },
     {
         title: "Acceptable Currency",
-        date: "BTC, ETH, LTC",
-        duration: '1400'
+        date: "ETH, USDT, USDC",
+        duration: '30'
 
     },
 ];
@@ -116,15 +116,15 @@ export const Token = () => {
 
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="text-center" >
-                    <h3 className='  text-[26px] font-bold mb-[20px]' data-aos="fade-up" data-aos-duration='1000'
+                    <h3 className='text-[26px] text-white font-bold mb-[20px]' data-aos="fade-up" data-aos-duration='1000'
                     >
                         Token Structure
 
                     </h3>
-                    <p className=' mb-[30px] text-white max-w-[555px] mx-auto' data-aos="fade-up" data-aos-duration='1200'
+                    {/* <p className=' mb-[30px] text-white max-w-[555px] mx-auto' data-aos="fade-up" data-aos-duration='1200'
                     >
                         Join the industry leaders to discuss where the markets are heading. We accept token payments.
-                    </p>
+                    </p> */}
                 </div>
                 <div className="grid grid-cols-12 gap-3 lg:gap-0 items-center">
                     <div className="col-span-12 lg:col-span-3 lg:px-[15px]">
@@ -170,10 +170,10 @@ export const Token = () => {
                                         46%
                                     </div>
                                     <div className="progress_label bg-white left-[30%]">
-                                        <strong> 46,000 BCC </strong>
+                                        <strong> 46,000 MOT </strong>
                                     </div>
                                     <div className="progress_label bg-white left-[75%]">
-                                        <strong>  90,000 BCC  </strong>
+                                        <strong>  90,000 MOT  </strong>
                                     </div>
                                     <span className="progress_min_val">Sale Raised</span>
                                     <span className='progress_max_val'>
@@ -188,7 +188,7 @@ export const Token = () => {
 
                                     </button>
                                 </div>
-                                <ul className="flex justify-center list-none">
+                                {/* <ul className="flex justify-center list-none">
                                     <li className='px-[5px]'>
                                         <FaCcVisa className='w-[20px] h-auto' />
                                     </li>
@@ -201,7 +201,7 @@ export const Token = () => {
                                     <li className='px-[5px]'>
                                         <FaPaypal className='w-[20px] h-auto' />
                                     </li>
-                                </ul>
+                                </ul> */}
 
 
                             </div>
@@ -236,10 +236,10 @@ export const Token = () => {
                         >
                             <div className="bg-[#ffffff1a] text-center mt-[20px] rounded-[5px]">
                                 <div className="p-[10px] border-b border-[#fff3]">
-                                    <h5 className="font-bold">{stage.stage}</h5>
+                                    <h5 className="font-bold text-white">{stage.stage}</h5>
                                 </div>
                                 <div className="p-[15px]">
-                                    <h6 className="font-medium mb-[.5rem]">{stage.duration}</h6>
+                                    <h6 className="text-white font-medium mb-[.5rem]">{stage.duration}</h6>
                                     <div className="text-[#ffcb68] pt-[25px] pb-[15px]">
                                         <span className="text-[20px]">{stage.discount}</span> Discount
                                     </div>

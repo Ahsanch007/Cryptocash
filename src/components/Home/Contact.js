@@ -22,10 +22,10 @@ export const Contact = () => {
                         <div className="py-[40px] px-[30px]">
                             <div className="" data-aos="fade-up" data-aos-duration='1100'>
                                 <h4 className='text-[#0e082c] font-bold text-[26px] mb-[20px] '>
-                                    Leave a Message
+                                    Send us a Message!
                                 </h4>
                                 <p className='mb-[30px]' data-aos="fade-up" data-aos-duration='1300'>
-                                    If You have any questions? we're happy to help
+                                    Questions or comments? Simply fill out the form below and we’ll get back to you ASAP.
                                 </p>
                                 <form action="" className=''>
                                     <div className="form-group mb-[1rem]" data-aos="fade-up" data-aos-duration='1700'>
@@ -47,21 +47,21 @@ export const Contact = () => {
                                     <div className='mt-[20px] flex gap-3 items-center' data-aos="fade-up" data-aos-duration='1600'>
                                         <FaGlobeAfrica className='text-[#193f88]' />
                                         <p className='text-[14px]'>
-                                            4 Montgomery, NY 12549
+                                            1325 S Hwy 89, Jackson, WY 83002
                                         </p>
 
                                     </div>
                                     <div className='mt-[20px] flex gap-3 items-center' data-aos="fade-up" data-aos-duration='2000'>
                                         <FaPhoneAlt className='text-[#193f88]' />
                                         <p className='text-[14px]'>
-                                            +23 0123 4567
+                                            +1 310 919 0760
                                         </p>
 
                                     </div>
                                     <div className='mt-[20px] flex gap-3 items-center' data-aos="fade-up" data-aos-duration='2200'>
                                         <IoMdMail className='text-[#193f88]' />
                                         <p className='text-[14px]'>
-                                            Yourmail@gmail.com
+                                            dom@mastersoftrivia.com	
                                         </p>
 
                                     </div>

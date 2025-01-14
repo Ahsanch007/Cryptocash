@@ -34,9 +34,9 @@ export const Footer = () => {
                                     <img src="/assets/footer_logo.png" className='max-w-full' alt="" />
                                 </a>
                             </div>
-                            <p className="text-white text-[14px]" data-aos="fade-up" data-aos-duration='1300'>
+                            {/* <p className="text-white text-[14px]" data-aos="fade-up" data-aos-duration='1300'>
                                 Cryptocash stands firmly in support of financial freedom and the liberty that Bitcoin provides globally for anyone.
-                            </p>
+                            </p> */}
                             <ul className="flex mt-[1rem] gap-2.5">
                                 <li data-aos="fade-up" data-aos-duration='1000'>
                                     <a href="#" className='text-white hover:text-[#ff69c9] transition-all '>
@@ -130,7 +130,7 @@ export const Footer = () => {
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="border-t border-white py-5 text-center">
                     <p className='text-white text-[14px]'>
-                        Copyright © 2018 All Rights Reserved.
+                        Copyright © 2025 All Rights Reserved.
                     </p>
                 </div>
             </div>

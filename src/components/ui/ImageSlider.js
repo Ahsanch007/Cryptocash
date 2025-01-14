@@ -5,7 +5,7 @@ import { MdClose } from "react-icons/md"; // React Icon for close button
 
 const images = [
     "/assets/image1.png", // Replace with your image paths
-    "/assets/2.png",
+    "/assets/image2.png",
     "/assets/image3.png",
 ];
 

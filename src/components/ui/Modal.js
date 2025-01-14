@@ -43,11 +43,11 @@ const Modal = ({ isOpen, onClose }) => {
             {/* Modal content */}
             <div
                 ref={modalRef}
-                className="bg-gradient-2 rounded-lg shadow-lg max-w-md w-full p-6 relative"
+                className="bg-gradient-2 rounded-[20px] shadow-lg max-w-md w-full p-6 relative"
             >
                 {/* Close button */}
                 <button
-                    className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
+                    className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 px-2 py-2"
                     onClick={onClose}
                     aria-label="Close modal"
                 >
@@ -55,12 +55,12 @@ const Modal = ({ isOpen, onClose }) => {
                 </button>
                 <div>
                     <div className="text-center">
-                        <h1 className="uppercase text-[30px] font-bold">🔥 Hot Sale 🔥</h1>
-                        <h3 className="text-[20px]">Pre-Sale End In</h3>
-                        <p className="text-white">Pre-Sale Price 1 EUCC = $0.1</p>
-                        <p className="text-white mb-3 text-[14px]">You are good to go!</p>
+                        <h1 className="uppercase text-[30px] text-white font-bold">🔥 Buy MOT Token 🔥</h1>
+                        {/* <h3 className="text-[20px] text-white">Pre-Sale End In</h3> */}
+                        <p className="text-white">Pre-Sale Price 1 MOT = $0.1</p>
+                        {/* <p className="text-white mb-3 text-[14px]">You are good to go!</p> */}
                         <p className="text-md text-white">
-                            Listing price: <strong>$0.1</strong>
+                            Listing price: <strong>$0.2</strong>
                         </p>
                         <div className="py-3 flex gap-3 justify-center items-center">
                             <button className="flex gap-1 items-center border border-white bg-transparent rounded-sm text-white hover:bg-white hover:text-[#0e082c] transition-all py-1 px-2 font-medium">
@@ -72,17 +72,17 @@ const Modal = ({ isOpen, onClose }) => {
                                 <img src="/assets/usdt.png" className="ml-1" alt="" />
                             </button>
                             <button className="flex gap-1 items-center border border-white bg-transparent rounded-sm text-white hover:bg-white hover:text-[#0e082c] transition-all py-1 px-2 font-medium">
-                                BNB
-                                <img src="/assets/bnb.png" className="ml-1" alt="" />
+                                USDC
+                                <img src="/assets/usdc.png" className="ml-1" alt="" />
                             </button>
-                            <button className="flex gap-1 items-center border border-white bg-transparent rounded-sm text-white hover:bg-white hover:text-[#0e082c] transition-all py-1 px-2 font-medium">
+                            {/* <button className="flex gap-1 items-center border border-white bg-transparent rounded-sm text-white hover:bg-white hover:text-[#0e082c] transition-all py-1 px-2 font-medium">
                                 CARD
                                 <img src="/assets/credit-card.png" className="ml-1" alt="" />
-                            </button>
+                            </button> */}
                         </div>
                         <div className="py-3">
                             <div className="mb-2">
-                                <div className="flex justify-between text-sm">
+                                <div className="flex justify-between text-sm text-white">
                                     <label htmlFor="" className="block">
                                         Amount in USDT you pay
                                     </label>
@@ -102,9 +102,9 @@ const Modal = ({ isOpen, onClose }) => {
                                 </div>
                             </div>
                             <div className="my-2">
-                                <div className="flex justify-between text-sm">
+                                <div className="flex justify-between text-sm text-white">
                                     <label htmlFor="" className="block">
-                                        Amount in EUCC you received
+                                        Amount in MOT you received
                                     </label>
                                 </div>
                                 <div className="relative mt-2">
@@ -126,9 +126,9 @@ const Modal = ({ isOpen, onClose }) => {
                                 Start Purchase
                             </button>
                         </div>
-                        <p className="text-white my-5 text-[14px]">
+                        {/* <p className="text-white my-5 text-[14px]">
                             Are you facing issues connecting with Trust Wallet Extension?
-                        </p>
+                        </p> */}
                     </div>
                 </div>
             </div>

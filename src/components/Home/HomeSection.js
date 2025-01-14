@@ -192,20 +192,19 @@ export const HomeSection = () => {
                 <div className='grid grid-cols-1 items-center lg:grid-cols-2'>
                     <div className="sm:px-[15px]  text-center md:text-start order-2 lg:order-1 pt-[100px] lg:pt-0 ">
                         <h2 data-aos="fade-up" data-aos-duration='1100' className="mb-[25px] font-normal text-white text-[20.8px] md:text-[40px]">
-                            <strong>Bitcoin</strong> is an <strong>innovative</strong> payment
-                            <strong>network</strong> and a new kind of <strong>money.</strong>
+                            <strong>Join the fastest-growing quiz community on the planet</strong>
                         </h2>
                         <p data-aos="fade-up" data-aos-duration='1300' className="text-white mb-[30px]">
-                            The mining starts immediately after confirmed payment. First payouts within 24 hours.
+                            Own a piece of the future of interactive learning and global gamified knowledge - powered by the Master of Trivia token.
                         </p>
                         <div className="flex" data-aos="fade-up" data-aos-duration='1500'>
                             <a href="#" className='inline-block  btn rounded-[40px] btnDefault'>
                                 <FaRegFileWord className='inline-block mr-2.5' />
                                 Whitepaper</a>
-                            <a href="#" className='inline-block  btn rounded-[40px]  ml-2.5 border-2 border-white hover:text-black hover:bg-white transition-all'>
+                            {/* <a href="#" className='inline-block  btn rounded-[40px]  ml-2.5 border-2 border-white hover:text-black hover:bg-white transition-all'>
                                 Sign Up To Join
                                 <FaLongArrowAltRight className='inline-block ml-2.5' />
-                            </a>
+                            </a> */}
                         </div>
                         <div className="vertical_social">
                             <ul className='list-none flex lg:flex-col'>

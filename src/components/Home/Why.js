@@ -5,21 +5,21 @@ import React, { useEffect } from 'react'
 const data = [
     {
         img: "/assets/wc_icon4.png",
-        title: "Fully Secured Data",
+        title: "A Thriving Global Ecosystem",
         description:
-            "Cryptocash bitcoin ensures every block and transaction it accepts is a valid, increasing not only your security but also helping prevent miners and banks from taking control of Bitcoin.",
+            "Masters of Trivia connects 196 countries in a dynamic trivia community, driving demand for MOT tokens through tournaments, rewards, and exclusive features—boosting long-term value for investors.",
     },
     {
         img: "/assets/wc_icon5.png",
-        title: "A Better User Interface",
+        title: "Liquidity and Growth Potential",
         description:
-            "Bitcoin wallet has features most other wallets don't have. But if you don't need them, you can use several other wallets on top of Bitcoin without losing Bitcoin Core's security and privacy benefits.",
+            "With strategic tokenomics, robust liquidity pools, and increasing adoption, MOT tokens are designed for sustainable price growth, creating lucrative opportunities for investors as the platform scales globally.",
     },
     {
         img: "/assets/wc_icon6.png",
-        title: "Support The Network",
+        title: "A Proven, Media-Backed Platform",
         description:
-            "Bitcoin helps support other peers.This isn't as useful as helping to keep Bitcoin decentralized, but it's an easy way for broadband users to contribute to less well-connected users.",
+            "Featured in top media outlets, Masters of Trivia combines credibility with innovation, ensuring investor confidence while attracting millions of engaged users who drive the token’s utility and value.",
     },
 ];
 
@@ -32,10 +32,10 @@ export const Why = () => {
             <div className="px-[15px] max-w-[1170px] mx-auto">
                 <div className="text-center">
                     <h3 className='text-[#0e082c] text-[26px] font-bold mb-[20px]' data-aos="fade-up" data-aos-duration='1000'>
-                        Why Choose Us?
+                        What we Do, in One Sentence.
                     </h3>
                     <p className='text-[#7a7a7a] mb-[30px] max-w-[555px] mx-auto' data-aos="fade-up" data-aos-duration='1200'>
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animid est laborum.
+                        We bring the world together through trivia, turning knowledge into entertainment, community, and meaningful rewards.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:grid-cols-3">

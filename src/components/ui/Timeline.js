@@ -7,12 +7,11 @@ const Timeline = () => {
     const [itemsToShow, setItemsToShow] = useState(5); // Initialize with default value
 
     const timelineData = [
-        { date: "April 2018", content: "Initial Coin Distribution & marketing" },
-        { date: "February 2018", content: "Exchange Cryptocash to Bitcoin" },
-        { date: "March 2018", content: "BTCC mode of payment in Cryptocash" },
-        { date: "June 2018", content: "Send-Receive coin Cryptocash & mobile" },
-        { date: "October 2018", content: "Coin Marketcap, World Coin Index" },
-        { date: "October 2018", content: "Coin Marketcap, World Coin Index" },
+        { date: "April 2024", content: "MOT Platform Relaunch" },
+        { date: "September 2024", content: "100,000 Downloads Reach" },
+        { date: "December 2024", content: "200,000 Downloads Reach" },
+        { date: "January 2025", content: "50,000+ Monthly Active Users" },
+        { date: "February 2025", content: "Launch of the MOT Token" },
     ];
 
     // Handle screen resize dynamically
@@ -81,7 +80,7 @@ const Timeline = () => {
                 {/* Active Progress Bar */}
                 {showContent &&
                     <div
-                        className="absolute top-[19%]   sm:top-[13%] w-full lg:w-[30%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
+                        className="absolute top-[19%]   sm:top-[13%] w-full lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
                     ></div>
                 }
 
@@ -94,7 +93,7 @@ const Timeline = () => {
                     >
                         {/* Circle */}
                         <div
-                            className={`w-8 h-8 flex items-center justify-center rounded-full ${index <= 1
+                            className={`w-8 h-8 flex items-center justify-center rounded-full ${index <= 3
                                 ? "border-[#ff69c9] bg-white border-4"
                                 : " border-2 border-white"
                                 }`}
@@ -114,7 +113,7 @@ const Timeline = () => {
                         <p className="text-sm   sm:block text-white">{item.content}</p>
 
                         {/* Content Box */}
-                        {showContent && index === 1 && ( // Only show content for the first item (or change condition based on activeIndex)
+                        {showContent && index === 3 && ( // Only show content for the second item
                             <div className="absolute mt-12 p-4 bg-[#ff69c9] text-white rounded-md shadow-lg">
                                 <div className="relative timeline_inner">
                                     <h3 className="text-md font-bold">

@@ -57,7 +57,7 @@ export default function Home() {
         <div id="contact">
           <Contact />
         </div>
-        <Client />
+        {/* <Client /> */}
 
         {/* Scroll-to-top button */}
         <div
