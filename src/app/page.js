@@ -15,6 +15,7 @@ import { Layout } from "@/components/MainLayout/layout";
 import { FaChevronUp } from "react-icons/fa";
 import "aos/dist/aos.css";
 import { Roadmap } from "@/components/Home/Roadmap";
+import { Image } from "@/components/Home/Image";
 
 export default function Home() {
   // Scroll to the top of the page
@@ -44,6 +45,7 @@ export default function Home() {
         <div id="roadmap">
           <Roadmap />
         </div>
+        <Image />
         <WhitePaper />
         <div id="team">
           <Team />
