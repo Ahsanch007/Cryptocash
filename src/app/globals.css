@@ -453,6 +453,10 @@ input[type="number"] {
   top: -24px;
   width: 0;
 }
+.gradient-bg {
+  background: linear-gradient(to right, #835edf, #351f8b);
+  
+}
 
 @media only screen and (max-width: 991px) {
   .vertical_social {

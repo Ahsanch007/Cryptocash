@@ -26,53 +26,49 @@ export const MobileApp = () => {
         Aos.init();
     }, []);
     return (
-        <div className='bg-custom-gradient overflow-hidden relative py-[30px] lg:py-[100px]'>
+        <div className='  overflow-hidden bg-white relative py-[30px] lg:py-[100px]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
-                <div className="grid grid-cols-12 gap-[30px]">
-                    <div className="col-span-12 lg:col-span-5 order-2 lg:order-1">
-                        <div data-aos="fade-right" data-aos-duration='1400'>
-                            <img src="/assets/mobile_app8.png" className='max-w-full h-auto w-full' alt="" />
-                        </div>
-                    </div>
-                    <div className="col-span-12 lg:col-span-7 order-1">
-                        <div>
-                            <h3 className='text-[26px] font-bold mb-[30px]' data-aos="fade-up" data-aos-duration='1000'>
-                                Download Mobile App
+                <div className="rounded-3xl relative gradient-bg p-8 outline outline-2 outline-white/[0.04] lg:p-[72px] ">
+                    <div className="flex flex-col lg:flex-row gap-4 lg:gap-0">
+                        <div className="flex flex-col gap-6 lg:w-[600px] lg:gap-8">
+                            <h3 className="font-rubik text-2xl !leading-[normal] max-lg:text-left lg:text-[40px]">
+                                Download our App Now!
                             </h3>
-                            <p className="text-white mb-[30px]" data-aos="fade-up" data-aos-duration='1400'>
-                                The use of crypto-currencies has become more widespread, and they are now increasingly accepted as a legitimate currency for transactions.
+                            <p className='text-sm text-white opacity-[0.88] lg:text-base'>
+                                Join the ranks of true trivia champions and quench your thirst for knowledge with Masters of Trivia – the ultimate quiz app designed to test your wits and unlock a world of fun facts.
+
                             </p>
-                            <ul className="list-none">
-                                {features.map((feature, index) => (
-                                    <li key={index} className="mb-[40px] flex items-start">
-                                        <div data-aos="fade-right" data-aos-duration='1400' className="rounded-full h-[68px] flex justify-center items-center text-[30px] py-[15px] text-center w-[68px] bg-gradient-custom2 flex-shrink-0">
-                                            {feature.icon}
-                                        </div>
-                                        <div data-aos="fade-up" data-aos-duration='1400' className="pl-5 overflow-hidden">
-                                            <h5 className="text-[18px] mb-2 text-white font-medium">{feature.title}</h5>
-                                            <p className="text-white">{feature.description}</p>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="flex gap-3   ">
-                                <button data-aos="fade-up" data-aos-duration='1600' className='btn flex items-center gap-3 bg-gradient-custom2 rounded-[40px] font-medium'>
-                                    <IoLogoAndroid className='text-[25px]' />
-                                    Google Store
-                                </button>
-                                <button data-aos="fade-up" data-aos-duration='1800' className='btn bg-gradient-custom2  flex items-center gap-3 rounded-[40px] font-medium'>
-                                    <FaApple className='text-[25px]' />
-                                    App Store
-                                </button>
+                            <p className="text-sm text-white leading-normal opacity-[0.88] lg:text-base">
+                                Challenge your brain, compete with friends, and discover fascinating tidbits from diverse categories. Don't miss out on the exhilarating experience that awaits you – get started now!
+                            </p>
+                            <div className="flex gap-6 max-lg:flex-wrap">
+                                <a href="#" className='flex h-[72px] cursor-pointer items-center gap-4 rounded-2xl bg-[#121618] px-8 py-6 shadow-inner hover:shadow-2xl max-lg:basis-full max-lg:justify-center'>
+                                    <img src="/assets/googleplay.webp" className='h-[20px]w-[20px] object-contain max-lg:h-6 max-lg:w-6' alt="" />
+                                    <div>
+                                        <p className='mb-1 text-white text-[11px] leading-none'>
+                                            Get it on
+                                        </p>
+                                        <p className="font-rubik text-white leading-none">
+                                            Google Play
+                                        </p>
+                                    </div>
+                                </a>
+                                <a className="flex h-[72px] cursor-pointer items-center gap-4 rounded-2xl bg-[#121618] px-8 py-6 shadow-inner hover:shadow-2xl max-lg:basis-full max-lg:justify-center" href="#">
+                                    <img alt="google play" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" className="h-[20px]w-[20px] object-contain max-lg:h-6 max-lg:w-6" src='/assets/ios.webp' />
+                                    <div className=""><p className="mb-1 text-white text-[11px] leading-none">Download on the</p><p className="font-rubik text-white leading-none">App Store</p></div></a>
                             </div>
+                        </div>
+                        <div className="flex-shrink-0 lg:basis-[400px]">
+                            <img src="/assets/mobile.webp" className='  max-w-full h-auto' alt="" />
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="waveWrapper">
+            {/* <div className="waveWrapper">
                 <div className="wave waveTop"></div>
                 <div className="wave waveMiddle"></div>
-            </div>
+            </div> */}
         </div>
     )
 }

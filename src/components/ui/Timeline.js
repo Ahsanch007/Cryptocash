@@ -20,7 +20,7 @@ const Timeline = () => {
         const updateItemsToShow = () => {
             const width = window.innerWidth;
             if (width < 768) {
-                setItemsToShow(2);
+                setItemsToShow(1);
             } else if (width < 1024) {
                 setItemsToShow(3);
             } else {
@@ -40,15 +40,13 @@ const Timeline = () => {
         setShowContent(false); // Hide content when navigating
 
         if (direction === "prev" && activeIndex > 0) {
+            setShowContent(true)
             setActiveIndex((prev) => prev - 1); // Move to previous item
         } else if (direction === "next" && activeIndex < timelineData.length - itemsToShow) {
             setActiveIndex((prev) => prev + 1); // Move to next item
         }
 
-        // Reset active state after navigating to give a clear transition
-        setTimeout(() => {
-            setShowContent(true); // Re-show the content (second data)
-        }, 300); // Adjust time delay to your preference
+
     };
 
     return (
@@ -56,7 +54,7 @@ const Timeline = () => {
             {/* Navigation Arrows */}
             <button
                 onClick={() => handleNavigation("prev")}
-                className={`absolute top-[40%] sm:top-[30%] z-[1] left-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex === 0
+                className={`absolute top-[34%]   sm:top-[30%] z-[1] left-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex === 0
                     ? "bg-gray-500 cursor-not-allowed"
                     : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md"
                     }`}
@@ -66,7 +64,7 @@ const Timeline = () => {
             </button>
             <button
                 onClick={() => handleNavigation("next")}
-                className={`absolute top-[40%] sm:top-[30%] z-[1] right-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex >= timelineData.length - itemsToShow
+                className={`absolute top-[34%]   sm:top-[30%] z-[1] right-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex >= timelineData.length - itemsToShow
                     ? "bg-gray-500 cursor-not-allowed"
                     : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md"
                     }`}
@@ -78,12 +76,14 @@ const Timeline = () => {
             {/* Timeline */}
             <div className="relative flex items-center justify-between">
                 {/* Background Line */}
-                <div className="absolute top-[25%] sm:top-[13%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
+                <div className="absolute top-[19%]   sm:top-[13%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
 
                 {/* Active Progress Bar */}
-                <div
-                    className="absolute top-[25%] sm:top-[13%] w-full lg:w-[30%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
-                ></div>
+                {showContent &&
+                    <div
+                        className="absolute top-[19%]   sm:top-[13%] w-full lg:w-[30%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
+                    ></div>
+                }
 
                 {/* Timeline Items */}
                 {timelineData.slice(activeIndex, activeIndex + itemsToShow).map((item, index) => (
@@ -111,10 +111,10 @@ const Timeline = () => {
                         >
                             {item.date}
                         </p>
-                        <p className="text-sm hidden sm:block text-white">{item.content}</p>
+                        <p className="text-sm   sm:block text-white">{item.content}</p>
 
                         {/* Content Box */}
-                        {showContent && index === 1 && ( // Only show content for the second item
+                        {showContent && index === 1 && ( // Only show content for the first item (or change condition based on activeIndex)
                             <div className="absolute mt-12 p-4 bg-[#ff69c9] text-white rounded-md shadow-lg">
                                 <div className="relative timeline_inner">
                                     <h3 className="text-md font-bold">
