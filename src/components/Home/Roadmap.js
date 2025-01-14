@@ -1,5 +1,6 @@
 import React from 'react'
 import ImageSlider from '../ui/ImageSlider'
+import Timeline from '../ui/Timeline'
 
 export const Roadmap = () => {
     return (
@@ -14,7 +15,8 @@ export const Roadmap = () => {
 
                     </p>
                 </div>
-                <ImageSlider />
+                <Timeline />
+                {/* <ImageSlider /> */}
 
 
             </div>
