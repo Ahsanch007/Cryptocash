@@ -16,8 +16,8 @@ export const Timer = () => {
     };
     return (
         <>
-            <div className='relative z-[9] token_gradiant'>
-                <div data-aos="zoom-in" data-aos-duration='1100' className="tk_countdown transparent_bg token_bg token_circle text-center relative ">
+            <div className='relative  token_gradiant'>
+                <div data-aos="zoom-in" data-aos-duration='1100' className="tk_countdown  z-[1] transparent_bg token_bg token_circle text-center relative ">
                     <div className="banner_text tk_counter_inner">
                         <div data-aos="fade-up" data-aos-duration='1200' className="rounded-[9px] p-0 transparent_bg shadow-none">
                             <span className="counter_box">
