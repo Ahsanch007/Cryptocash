@@ -8,6 +8,29 @@ import { GiHamburgerMenu } from "react-icons/gi";
 export const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedLanguage, setSelectedLanguage] = useState({
+        name: "EN",
+        icon: "/assets/eng.png",
+    });
+
+    const toggleDropdown = () => {
+        setIsOpen((prev) => !prev);
+    };
+
+    const selectLanguage = (language) => {
+        setSelectedLanguage(language);
+        setIsOpen(false); // Close dropdown after selecting
+    };
+
+    const languages = [
+        { name: "EN", icon: "/assets/eng.png" },
+        { name: "FN", icon: "/assets/fn.png" },
+        { name: "US", icon: "/assets/us.png" },
+    ];
+
+
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
@@ -90,13 +113,44 @@ export const Header = () => {
                         </div>
                         <div className="md:flex hidden items-center">
                             <div className="relative">
-
-                                <div className="flex gap-2 cursor-pointer items-center" data-aos="fade-down" data-aos-duration='2000'>
-                                    <img src="/assets/eng.png" className='max-w-[20px] h-auto rounded-full ' alt="" />
-                                    <span className='text-white'>
-                                        EN
-                                    </span>
+                                {/* Button */}
+                                <div
+                                    className="flex gap-2 cursor-pointer items-center"
+                                    onClick={toggleDropdown}
+                                >
+                                    <img
+                                        src={selectedLanguage.icon}
+                                        className="max-w-[20px] h-auto rounded-full"
+                                        alt=""
+                                    />
+                                    <span className="text-white">{selectedLanguage.name}</span>
                                     <FaChevronDown />
+                                </div>
+
+                                {/* Dropdown */}
+                                <div
+                                    className={`absolute top-[35px] bg-[#193d85] py-[5px] px-[9px] transition-all duration-300 ease-in-out ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                                        }`}
+                                    style={{
+                                        boxShadow: "0 .5rem 1rem rgba(0,0,0,.15)",
+                                    }}
+                                >
+                                    <ul className="flex flex-col gap-2">
+                                        {languages.map((language) => (
+                                            <li
+                                                key={language.name}
+                                                className="flex gap-2 cursor-pointer items-center text-white"
+                                                onClick={() => selectLanguage(language)}
+                                            >
+                                                <img
+                                                    src={language.icon}
+                                                    className="max-w-[20px] h-auto rounded-full"
+                                                    alt=""
+                                                />
+                                                {language.name}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                             <div className="ml-[15px]" data-aos="fade-down" data-aos-duration='2100'>

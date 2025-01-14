@@ -74,7 +74,7 @@ export const HomeSection = () => {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 parts.forEach((li) => {
                     const distanceFactor = Math.max(
-                        Math.min(15 - DistanceBetween(mouse, li) / 10, 10),
+                        Math.min(10 - DistanceBetween(mouse, li) / 10, 10),
                         1
                     );
                     ctx.beginPath();
