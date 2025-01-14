@@ -12,13 +12,13 @@ export const Contact = () => {
     return (
         <div className='bg-[#fbfaff]'>
             <div className=" ">
-                <div className="grid grid-cols-12">
+                <div className="">
                     {/* <div className="col-span-12 lg:col-span-7 relative">
                         <div className="h-full">
                             <Location />
                         </div>
                     </div> */}
-                    <div className="col-span-12 lg:col-span-12 px-[15px]">
+                    <div className="max-w-[500px] mx-auto px-[15px]">
                         <div className="py-[40px] px-[30px]">
                             <div className="" data-aos="fade-up" data-aos-duration='1100'>
                                 <h4 className='text-[#0e082c] font-bold text-[26px] mb-[20px] '>
