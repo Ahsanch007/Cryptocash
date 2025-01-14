@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Timeline = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [showContent, setShowContent] = useState(true); // To control content visibility
+    const [itemsToShow, setItemsToShow] = useState(5); // Initialize with default value
 
     const timelineData = [
         { date: "April 2018", content: "Initial Coin Distribution & marketing" },
@@ -14,7 +15,26 @@ const Timeline = () => {
         { date: "October 2018", content: "Coin Marketcap, World Coin Index" },
     ];
 
-    const itemsToShow = window.innerWidth < 768 ? 2 : window.innerWidth < 1024 ? 3 : 5; // Set number of items to show based on screen size
+    // Handle screen resize dynamically
+    useEffect(() => {
+        const updateItemsToShow = () => {
+            const width = window.innerWidth;
+            if (width < 768) {
+                setItemsToShow(2);
+            } else if (width < 1024) {
+                setItemsToShow(3);
+            } else {
+                setItemsToShow(5);
+            }
+        };
+
+        updateItemsToShow(); // Set initial value
+        window.addEventListener("resize", updateItemsToShow); // Update on resize
+
+        return () => {
+            window.removeEventListener("resize", updateItemsToShow); // Cleanup listener
+        };
+    }, []);
 
     const handleNavigation = (direction) => {
         setShowContent(false); // Hide content when navigating
@@ -38,7 +58,7 @@ const Timeline = () => {
                 onClick={() => handleNavigation("prev")}
                 className={`absolute top-[40%] z-[1] left-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex === 0
                     ? "bg-gray-500 cursor-not-allowed"
-                    : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md  "
+                    : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md"
                     }`}
                 disabled={activeIndex === 0}
             >
@@ -48,7 +68,7 @@ const Timeline = () => {
                 onClick={() => handleNavigation("next")}
                 className={`absolute top-[40%] z-[1] right-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex >= timelineData.length - itemsToShow
                     ? "bg-gray-500 cursor-not-allowed"
-                    : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md  "
+                    : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md"
                     }`}
                 disabled={activeIndex >= timelineData.length - itemsToShow}
             >
@@ -63,7 +83,6 @@ const Timeline = () => {
                 {/* Active Progress Bar */}
                 <div
                     className="absolute top-[25%] w-full lg:w-[30%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
-
                 ></div>
 
                 {/* Timeline Items */}
@@ -75,8 +94,10 @@ const Timeline = () => {
                     >
                         {/* Circle */}
                         <div
-                            className={`w-8 h-8 flex items-center justify-center rounded-full  ${index <= 1 ? "border-[#ff69c9] bg-white border-4" : " border-2 border-white "
-                                }  `}
+                            className={`w-8 h-8 flex items-center justify-center rounded-full ${index <= 1
+                                ? "border-[#ff69c9] bg-white border-4"
+                                : " border-2 border-white"
+                                }`}
                         >
                             <div
                                 className={`w-[20px] h-[20px] rounded-full ${index <= activeIndex ? "bg-white" : "bg-white"
@@ -86,8 +107,7 @@ const Timeline = () => {
 
                         {/* Date */}
                         <p
-                            className={`mt-4 text-md font-bold text-white
-                                `}
+                            className={`mt-4 text-md font-bold text-white`}
                         >
                             {item.date}
                         </p>
