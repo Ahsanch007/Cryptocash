@@ -36,8 +36,6 @@ const social = [
 export const HomeSection = () => {
     useEffect(() => {
         const canvasAnimation = () => {
-            const w = window.innerWidth;
-            const h = window.innerHeight;
             const canvas = document.getElementById('banner_canvas');
             const ctx = canvas.getContext('2d');
             const arc = 200;
@@ -47,13 +45,18 @@ export const HomeSection = () => {
             const mouse = { x: 0, y: 0 };
             const parts = [];
 
-            canvas.width = w;
-            canvas.height = h;
+            const resizeCanvas = () => {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            };
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
 
             for (let i = 0; i < arc; i++) {
                 parts.push({
-                    x: Math.ceil(Math.random() * w),
-                    y: Math.ceil(Math.random() * h),
+                    x: Math.ceil(Math.random() * canvas.width),
+                    y: Math.ceil(Math.random() * canvas.height),
                     toX: Math.random() * 5 - 1,
                     toY: Math.random() * 2 - 1,
                     c: colors[Math.floor(Math.random() * colors.length)],
@@ -68,7 +71,7 @@ export const HomeSection = () => {
             };
 
             const drawParticles = () => {
-                ctx.clearRect(0, 0, w, h);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 parts.forEach((li) => {
                     const distanceFactor = Math.max(
                         Math.min(15 - DistanceBetween(mouse, li) / 10, 10),
@@ -82,10 +85,10 @@ export const HomeSection = () => {
                     li.x += li.toX * (speed * 0.05);
                     li.y += li.toY * (speed * 0.05);
 
-                    if (li.x > w) li.x = 0;
-                    if (li.y > h) li.y = 0;
-                    if (li.x < 0) li.x = w;
-                    if (li.y < 0) li.y = h;
+                    if (li.x > canvas.width) li.x = 0;
+                    if (li.y > canvas.height) li.y = 0;
+                    if (li.x < 0) li.x = canvas.width;
+                    if (li.y < 0) li.y = canvas.height;
                 });
 
                 requestAnimationFrame(drawParticles);
@@ -102,6 +105,7 @@ export const HomeSection = () => {
             // Cleanup on component unmount
             return () => {
                 canvas.removeEventListener('mousemove', onMouseMove);
+                window.removeEventListener('resize', resizeCanvas);
             };
         };
 
