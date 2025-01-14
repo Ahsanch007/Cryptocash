@@ -56,7 +56,7 @@ const Timeline = () => {
             {/* Navigation Arrows */}
             <button
                 onClick={() => handleNavigation("prev")}
-                className={`absolute top-[40%] z-[1] left-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex === 0
+                className={`absolute top-[40%] sm:top-[30%] z-[1] left-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex === 0
                     ? "bg-gray-500 cursor-not-allowed"
                     : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md"
                     }`}
@@ -66,7 +66,7 @@ const Timeline = () => {
             </button>
             <button
                 onClick={() => handleNavigation("next")}
-                className={`absolute top-[40%] z-[1] right-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex >= timelineData.length - itemsToShow
+                className={`absolute top-[40%] sm:top-[30%] z-[1] right-4 transform -translate-y-1/2 p-2 rounded-full ${activeIndex >= timelineData.length - itemsToShow
                     ? "bg-gray-500 cursor-not-allowed"
                     : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md"
                     }`}
@@ -78,11 +78,11 @@ const Timeline = () => {
             {/* Timeline */}
             <div className="relative flex items-center justify-between">
                 {/* Background Line */}
-                <div className="absolute top-[25%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
+                <div className="absolute top-[25%] sm:top-[13%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
 
                 {/* Active Progress Bar */}
                 <div
-                    className="absolute top-[25%] w-full lg:w-[30%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
+                    className="absolute top-[25%] sm:top-[13%] w-full lg:w-[30%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
                 ></div>
 
                 {/* Timeline Items */}
@@ -111,6 +111,7 @@ const Timeline = () => {
                         >
                             {item.date}
                         </p>
+                        <p className="text-sm hidden sm:block text-white">{item.content}</p>
 
                         {/* Content Box */}
                         {showContent && index === 1 && ( // Only show content for the second item
