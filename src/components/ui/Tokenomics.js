@@ -25,9 +25,9 @@ const Tokenomics = () => {
                     '#FF6384', // Pink
                     '#36A2EB', // Blue
                     '#9966FF', // Purple
-                    '#9966FF', // Purple
-                    '#9966FF', // Purple
-                    '#9966FF', // Purple
+                    '#FFCE56', // Yellow
+                    '#A2D9CE', // Mint
+                    '#C39BD3', // Lavender
                 ],
                 borderWidth: 1,
             },
@@ -39,13 +39,12 @@ const Tokenomics = () => {
         maintainAspectRatio: false,
         plugins: {
             tooltip: {
-                enabled: false, // Disable tooltips since we're customizing labels
+                enabled: false,
             },
             legend: {
-                display: false, // Hide default legend
+                display: false,
             },
         },
-        animation: false,
     };
 
     const drawCustomLabels = (chart) => {
@@ -54,37 +53,41 @@ const Tokenomics = () => {
 
         const { width, height } = chartArea;
         const meta = chart.getDatasetMeta(0);
+        const placedLabels = []; // To keep track of already placed labels and avoid overlaps
 
         meta.data.forEach((arc, index) => {
             const dataset = data.datasets[0];
             const value = dataset.data[index];
             const percentage = `${value.toFixed(2)}%`;
 
-            // Get the center angle of the slice
             const centerAngle = (arc.startAngle + arc.endAngle) / 2;
 
-            // Calculate the starting point of the callout line
             const outerRadius = arc.outerRadius;
-            const startX = Math.cos(centerAngle) * (outerRadius - 10) + width / 2; // Start inside the pie chart
-            const startY = Math.sin(centerAngle) * (outerRadius - 10) + height / 2; // Start inside the pie chart
+            const startX = Math.cos(centerAngle) * (outerRadius - 10) + width / 2;
+            const startY = Math.sin(centerAngle) * (outerRadius - 10) + height / 2;
 
-            // Set the callout line's length and avoid overflowing out of bounds
-            const lineLength = 10;
+            const lineLength = 15;
             const endX = Math.cos(centerAngle) * (outerRadius + lineLength) + width / 2;
             const endY = Math.sin(centerAngle) * (outerRadius + lineLength) + height / 2;
 
-            // Adjust label position based on the angle to ensure it stays inside the canvas
-            const horizontalOffset = 20;
+            const horizontalOffset = 30;
             let labelX = endX < width / 2 ? endX - horizontalOffset : endX + horizontalOffset;
 
-            // Ensure the label stays within the canvas horizontally
-            labelX = Math.max(20, Math.min(labelX, width - 20));
-
-            // Adjust vertical position to avoid clipping
+            // Adjust vertical position to prevent overlapping with already placed labels
             let labelY = endY;
-            const padding = 10; // Add padding to the top and bottom
-            if (endY < padding) labelY = padding; // Top padding
-            if (endY > height - padding) labelY = height - padding; // Bottom padding
+            placedLabels.forEach((placedLabel) => {
+                if (Math.abs(labelY - placedLabel.y) < 20) {
+                    labelY = labelY + (labelY > placedLabel.y ? 20 : -20);
+                }
+            });
+
+            // Ensure label stays within the canvas bounds
+            const padding = 20;
+            labelX = Math.max(20, Math.min(labelX, width - 20));
+            labelY = Math.max(padding, Math.min(labelY, height - padding));
+
+            // Save the label's position
+            placedLabels.push({ x: labelX, y: labelY });
 
             // Draw the callout line
             ctx.beginPath();
@@ -94,30 +97,23 @@ const Tokenomics = () => {
             ctx.lineWidth = 1;
             ctx.stroke();
 
-            // Draw the horizontal segment of the callout line
             ctx.beginPath();
             ctx.moveTo(endX, endY);
             ctx.lineTo(labelX, labelY);
             ctx.stroke();
 
-            // Add the text label (category) and percentage
+            // Draw the label and percentage
             const label = data.labels[index];
             ctx.fillStyle = '#000';
             ctx.font = '12px Arial';
             ctx.textAlign = endX < width / 2 ? 'right' : 'left';
-
-            // Adjust the label placement to avoid overlap
-            const labelYAdjusted = labelY - 6;
-            const percentageYAdjusted = labelY + 12;
-
-            // Draw the label and percentage
-            ctx.fillText(label, labelX, labelYAdjusted); // Category label
-            ctx.fillText(percentage, labelX, percentageYAdjusted); // Percentage
+            ctx.fillText(label, labelX, labelY - 5);
+            ctx.fillText(percentage, labelX, labelY + 15);
         });
     };
 
     return (
-        <div className='' style={{ width: '100%', height: '300px', position: 'relative' }}>
+        <div style={{ width: '100%', height: '400px', position: 'relative' }}>
             <Pie
                 data={data}
                 options={options}
@@ -133,4 +129,3 @@ const Tokenomics = () => {
 };
 
 export default Tokenomics;
-``

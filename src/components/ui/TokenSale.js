@@ -52,33 +52,25 @@ const TokenSale = () => {
             const value = dataset.data[index];
             const percentage = `${value.toFixed(2)}%`;
 
-            // Get the center angle of the slice
             const centerAngle = (arc.startAngle + arc.endAngle) / 2;
 
-            // Calculate the starting point of the callout line
             const outerRadius = arc.outerRadius;
-            const startX = Math.cos(centerAngle) * (outerRadius - 10) + width / 2; // Start inside the pie chart
-            const startY = Math.sin(centerAngle) * (outerRadius - 10) + height / 2; // Start inside the pie chart
+            const startX = Math.cos(centerAngle) * (outerRadius - 10) + width / 2;
+            const startY = Math.sin(centerAngle) * (outerRadius - 10) + height / 2;
 
-            // Set the callout line's length and avoid overflowing out of bounds
-            const lineLength = 10;
+            const lineLength = 15;
             const endX = Math.cos(centerAngle) * (outerRadius + lineLength) + width / 2;
             const endY = Math.sin(centerAngle) * (outerRadius + lineLength) + height / 2;
 
-            // Adjust label position based on the angle to ensure it stays inside the canvas
-            const horizontalOffset = 20;
+            const horizontalOffset = 30;
             let labelX = endX < width / 2 ? endX - horizontalOffset : endX + horizontalOffset;
-
-            // Ensure the label stays within the canvas horizontally
             labelX = Math.max(20, Math.min(labelX, width - 20));
 
-            // Adjust vertical position to avoid clipping
             let labelY = endY;
-            const padding = 10; // Add padding to the top and bottom
-            if (endY < padding) labelY = padding; // Top padding
-            if (endY > height - padding) labelY = height - padding; // Bottom padding
+            const padding = 20;
+            if (endY < padding) labelY = padding;
+            if (endY > height - padding) labelY = height - padding;
 
-            // Draw the callout line
             ctx.beginPath();
             ctx.moveTo(startX, startY);
             ctx.lineTo(endX, endY);
@@ -86,30 +78,23 @@ const TokenSale = () => {
             ctx.lineWidth = 1;
             ctx.stroke();
 
-            // Draw the horizontal segment of the callout line
             ctx.beginPath();
             ctx.moveTo(endX, endY);
             ctx.lineTo(labelX, labelY);
             ctx.stroke();
 
-            // Add the text label (category) and percentage
             const label = data.labels[index];
             ctx.fillStyle = '#000';
             ctx.font = '12px Arial';
             ctx.textAlign = endX < width / 2 ? 'right' : 'left';
 
-            // Adjust the label placement to avoid overlap
-            const labelYAdjusted = labelY - 6;
-            const percentageYAdjusted = labelY + 12;
-
-            // Draw the label and percentage
-            ctx.fillText(label, labelX, labelYAdjusted); // Category label
-            ctx.fillText(percentage, labelX, percentageYAdjusted); // Percentage
+            ctx.fillText(label, labelX, labelY - 5);
+            ctx.fillText(percentage, labelX, labelY + 15);
         });
     };
 
     return (
-        <div className='' style={{ width: '100%', height: '300px', position: 'relative' }}>
+        <div className='' style={{ width: '100%', height: '400px', position: 'relative' }}>
             <Pie
                 data={data}
                 options={options}
