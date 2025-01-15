@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Timeline = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [showContent, setShowContent] = useState(true); // To control content visibility
+    const [activeIndex, setActiveIndex] = useState(3); // Start with the 3rd item as active
     const [itemsToShow, setItemsToShow] = useState(5); // Initialize with default value
 
     const timelineData = [
@@ -20,6 +19,7 @@ const Timeline = () => {
             const width = window.innerWidth;
             if (width < 768) {
                 setItemsToShow(1);
+                setActiveIndex(2); // Ensure the 3rd item is active on mobile
             } else if (width < 1024) {
                 setItemsToShow(3);
             } else {
@@ -36,16 +36,11 @@ const Timeline = () => {
     }, []);
 
     const handleNavigation = (direction) => {
-        setShowContent(false); // Hide content when navigating
-
         if (direction === "prev" && activeIndex > 0) {
-            setShowContent(true)
             setActiveIndex((prev) => prev - 1); // Move to previous item
         } else if (direction === "next" && activeIndex < timelineData.length - itemsToShow) {
             setActiveIndex((prev) => prev + 1); // Move to next item
         }
-
-
     };
 
     return (
@@ -53,7 +48,7 @@ const Timeline = () => {
             {/* Navigation Arrows */}
             <button
                 onClick={() => handleNavigation("prev")}
-                className={`absolute top-[34%]   sm:top-[34%] z-[1] left-0 transform -translate-y-1/2 p-2 rounded-full ${activeIndex === 0
+                className={`absolute top-[34%] sm:top-[34%] z-[1] left-0 transform -translate-y-1/2 p-2 rounded-full ${activeIndex === 0
                     ? "bg-gray-500 cursor-not-allowed"
                     : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md"
                     }`}
@@ -63,7 +58,7 @@ const Timeline = () => {
             </button>
             <button
                 onClick={() => handleNavigation("next")}
-                className={`absolute top-[34%]   sm:top-[34%] z-[1] right-0 transform -translate-y-1/2 p-2 rounded-full ${activeIndex >= timelineData.length - itemsToShow
+                className={`absolute top-[34%] sm:top-[34%] z-[1] right-0 transform -translate-y-1/2 p-2 rounded-full ${activeIndex >= timelineData.length - itemsToShow
                     ? "bg-gray-500 cursor-not-allowed"
                     : "bg-white text-[#0e082c] hover:bg-[#ff69c9] hover:text-white shadow-md"
                     }`}
@@ -75,15 +70,10 @@ const Timeline = () => {
             {/* Timeline */}
             <div className="relative flex items-center justify-between">
                 {/* Background Line */}
-                <div className="absolute top-[19%]   sm:top-[17%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
-
-                {/* Active Progress Bar */}
-                {showContent &&
-                    <div
-                        className="absolute top-[19%]   sm:top-[17%] w-full lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
-                    ></div>
-                }
-
+                <div className="absolute top-[19%] sm:top-[17%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
+                <div
+                    className="absolute top-[19%]   sm:top-[17%] w-[45%] lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
+                ></div>
                 {/* Timeline Items */}
                 {timelineData.slice(activeIndex, activeIndex + itemsToShow).map((item, index) => (
                     <div
@@ -95,7 +85,7 @@ const Timeline = () => {
                         <div
                             className={`w-8 h-8 flex items-center justify-center rounded-full ${index <= 3
                                 ? "border-[#ff69c9] bg-white border-4"
-                                : " border-2 border-white"
+                                : "border-2 border-white"
                                 }`}
                         >
                             <div
@@ -105,22 +95,14 @@ const Timeline = () => {
                         </div>
 
                         {/* Date */}
-                        <p
-                            className={`mt-4 text-md font-bold text-white`}
-                        >
-                            {item.date}
-                        </p>
-                        <p className="text-sm   sm:block text-white">{item.content}</p>
+                        <p className="mt-4 text-md font-bold text-white">{item.date}</p>
+                        <p className="text-sm sm:block text-white">{item.content}</p>
 
                         {/* Content Box */}
-                        {showContent && index === 3 && ( // Only show content for the second item
+                        {index + activeIndex === 3 && ( // Show content for the active 3rd item
                             <div className="absolute mt-12 p-4 bg-[#ff69c9] text-white rounded-md shadow-lg">
-                                <div className="relative timeline_inner">
-                                    <h3 className="text-md font-bold">
-                                        {item.date}
-                                    </h3>
-                                    <p className="text-sm text-white">{item.content}</p>
-                                </div>
+                                <h3 className="text-md font-bold">{item.date}</h3>
+                                <p className="text-sm text-white">{item.content}</p>
                             </div>
                         )}
                     </div>
