@@ -8,7 +8,7 @@ const teamMembers = [
     {
         name: 'Dom Einhorn',
         title: 'Founder',
-        imgSrc: '/assets/1.png',
+        imgSrc: '/assets/image1.png',
         socialLinks: [
             // { url: '#', label: 'Facebook', icon: <FaFacebookF /> },
             // { url: '#', label: 'Twitter', icon: <FaTwitter /> },
@@ -46,7 +46,7 @@ const teamMembers = [
     {
         name: 'Dr. Mia Nguyen',
         title: 'VP Brand',
-        imgSrc: '/assets/3.png',
+        imgSrc: '/assets/image3.png',
         socialLinks: [
             // { url: '#', label: 'Facebook', icon: <FaFacebookF /> },
             // { url: '#', label: 'Twitter', icon: <FaTwitter /> },
@@ -121,7 +121,7 @@ export const Team = () => {
                     ))}
                 </div>
                 <div className="h-[100px]"></div>
-                
+
             </div>
         </div>
     )

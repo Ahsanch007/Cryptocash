@@ -28,9 +28,9 @@ export const MobileApp = () => {
     return (
         <div className='  overflow-hidden bg-white relative py-[30px] lg:py-[100px]'>
             <div className="px-[15px] max-w-[1170px] mx-auto">
-                <div className="rounded-3xl relative gradient-bg p-8 outline outline-2 outline-white/[0.04] lg:p-[72px] ">
+                <div className="rounded-3xl relative gradient-bg px-8 pt-8 outline outline-2 outline-white/[0.04] lg:px-[72px] lg:pt-[72px] ">
                     <div className="flex flex-col lg:flex-row gap-4 lg:gap-0">
-                        <div className="flex flex-col gap-6 lg:w-[600px] lg:gap-8">
+                        <div className="flex flex-col gap-6 lg:w-[600px] lg:gap-8 pb-8 lg:pb-[72px]">
                             <h3 className="font-rubik text-2xl text-white !leading-[normal] max-lg:text-left lg:text-[40px]">
                                 Download our App Now!
                             </h3>
@@ -58,8 +58,8 @@ export const MobileApp = () => {
                                     <div className=""><p className="mb-1 text-white text-[11px] leading-none">Download on the</p><p className="font-rubik text-white leading-none">App Store</p></div></a>
                             </div>
                         </div>
-                        <div className="flex-shrink-0 lg:basis-[400px]">
-                            <img src="/assets/mobile.webp" className='  max-w-full h-auto' alt="" />
+                        <div className="flex-shrink-0 lg:basis-[400px] relative">
+                            <img src="/assets/mobile.webp" className=' absolute mx-auto bottom-[-2px]  max-w-full h-full' alt="" />
 
                         </div>
                     </div>
