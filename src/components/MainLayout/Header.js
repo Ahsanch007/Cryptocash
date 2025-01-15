@@ -58,7 +58,7 @@ export const Header = () => {
                 <div className="px-[15px] relative">
                     <div className="flex justify-between items-center">
                         <div className="logo" data-aos="fade-down" data-aos-duration='1000'>
-                            <img src="/assets/logo.png" className={` ${scrolled ? 'max-w-[200px] lg:max-w-[180px]' : ' max-w-[200px] lg:max-w-full'}  h-auto`} alt="" />
+                            {/* <img src="/assets/logo.png" className={` ${scrolled ? 'max-w-[200px] lg:max-w-[180px]' : ' max-w-[200px] lg:max-w-full'}  h-auto`} alt="" /> */}
                         </div>
                         <div className="menu-list hidden lg:block">
                             <ul className="flex list-none items-center p-0 m-0">
@@ -99,7 +99,7 @@ export const Header = () => {
                                     <FaChevronDown />
                                 </div>
                             </div> */}
-                            <div className="ml-[15px]" data-aos="fade-down" data-aos-duration='2100'>
+                            <div className="ml-[15px] mt-3" data-aos="fade-down" data-aos-duration='2100'>
                                 <button className='text-[15px] text-white bg-[#fff3] py-2.5 px-[25px] rounded-[40px] font-medium transition-all hover:text-black'>
                                     LOGIN
                                 </button>

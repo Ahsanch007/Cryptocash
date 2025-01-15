@@ -183,7 +183,10 @@ export const HomeSection = () => {
         Aos.init();
     }, []);
     return (
-        <div className="section_gradiant3 section_banner">
+        <div className="section_gradiant3 section_banner relative">
+            <div className="loggo absolute top-2 left-2">
+                <img src="/assets/logo1.png" className='max-w-[100px] lg:max-w-[180px] h-auto' alt="" />
+            </div>
             <canvas id="banner_canvas" className="transparent_effect w-full h-full"></canvas>
             <div className="px-[15px] max-w-[1170px] mx-auto">
 
