@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Timeline = () => {
-    const [activeIndex, setActiveIndex] = useState(3); // Start with the 3rd item as active
-    const [itemsToShow, setItemsToShow] = useState(5); // Initialize with default value
+    const [activeIndex, setActiveIndex] = useState(0); // Start with the first item as active
+    const [itemsToShow, setItemsToShow] = useState(5); // Default value for larger screens
 
     const timelineData = [
         { date: "April 2024", content: "MOT Platform Relaunch" },
@@ -14,16 +14,13 @@ const Timeline = () => {
     ];
 
     // Handle screen resize dynamically
-    useEffect(() => {
+    useLayoutEffect(() => {
         const updateItemsToShow = () => {
             const width = window.innerWidth;
             if (width < 768) {
-                setItemsToShow(1);
-                setActiveIndex(2); // Ensure the 3rd item is active on mobile
-            } else if (width < 1024) {
-                setItemsToShow(3);
+                setItemsToShow(1); // Show 1 item on mobile screens
             } else {
-                setItemsToShow(5);
+                setItemsToShow(5); // Show multiple items on larger screens
             }
         };
 
@@ -71,9 +68,8 @@ const Timeline = () => {
             <div className="relative flex items-center justify-between">
                 {/* Background Line */}
                 <div className="absolute top-[19%] sm:top-[17%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
-                <div
-                    className="absolute top-[19%]   sm:top-[17%] w-[45%] lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300"
-                ></div>
+                <div className={`absolute top-[19%] sm:top-[17%] ${activeIndex ? 'w-full' : 'w-[45%]'}  lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300`}></div>
+
                 {/* Timeline Items */}
                 {timelineData.slice(activeIndex, activeIndex + itemsToShow).map((item, index) => (
                     <div
@@ -89,7 +85,7 @@ const Timeline = () => {
                                 }`}
                         >
                             <div
-                                className={`w-[20px] h-[20px] rounded-full ${index <= activeIndex ? "bg-white" : "bg-white"
+                                className={`w-[20px] h-[20px] rounded-full ${index + activeIndex <= activeIndex ? "bg-white" : "bg-white"
                                     }`}
                             ></div>
                         </div>
@@ -99,7 +95,7 @@ const Timeline = () => {
                         <p className="text-sm sm:block text-white">{item.content}</p>
 
                         {/* Content Box */}
-                        {index + activeIndex === 3 && ( // Show content for the active 3rd item
+                        {index + activeIndex === 3 && (
                             <div className="absolute mt-12 p-4 bg-[#ff69c9] text-white rounded-md shadow-lg">
                                 <h3 className="text-md font-bold">{item.date}</h3>
                                 <p className="text-sm text-white">{item.content}</p>
