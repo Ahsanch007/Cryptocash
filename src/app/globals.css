@@ -457,6 +457,9 @@ input[type="number"] {
   background: linear-gradient(to right, #835edf, #351f8b);
   
 }
+.recharts-legend-wrapper{
+  display: none !important;
+}
 
 @media only screen and (max-width: 991px) {
   .vertical_social {
