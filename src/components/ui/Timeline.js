@@ -68,7 +68,7 @@ const Timeline = () => {
             <div className="relative flex items-center justify-between">
                 {/* Background Line */}
                 <div className="absolute top-[19%] sm:top-[17%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
-                <div className={`absolute top-[19%] sm:top-[17%] ${activeIndex === 3 ? 'w-[22%]' : activeIndex ? 'w-[70%]' : 'w-[20%]'}  lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300`}></div>
+                <div className={`absolute top-[19%] sm:top-[17%] ${activeIndex === 3 ? 'w-[22%]' : activeIndex ? 'w-[100%]' : 'w-[100%]'}  lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300`}></div>
 
                 {/* Timeline Items */}
                 {timelineData.slice(activeIndex, activeIndex + itemsToShow).map((item, index) => (
