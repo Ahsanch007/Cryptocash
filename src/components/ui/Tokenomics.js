@@ -4,23 +4,29 @@ import { Chart as ChartJS, Tooltip, Legend, ArcElement } from 'chart.js';
 
 ChartJS.register(Tooltip, Legend, ArcElement);
 
-const PieChartWithLabels = () => {
+const Tokenomics = () => {
     const data = {
         labels: [
-            'Mobile Ad Platform',
-            'Bounty',
-            'Platform Integration',
-            'Token Sale',
-            'Operational Overhead',
+            'Presale',
+            'Liquidity Pools and Exchange Listings',
+            'Ecosystem Incentives',
+            'Team and Advisors',
+            'Development and Operations Costs',
+            'Marketing Machine',
+            'Investment Fund',
+            'Community and Partnerships',
         ],
         datasets: [
             {
-                data: [24.25, 30.25, 16.25, 15, 20.15],
+                data: [20, 20, 15, 10, 10, 10, 10, 5],
                 backgroundColor: [
                     '#F69040', // Orange
                     '#4BC0C0', // Teal
                     '#FF6384', // Pink
                     '#36A2EB', // Blue
+                    '#9966FF', // Purple
+                    '#9966FF', // Purple
+                    '#9966FF', // Purple
                     '#9966FF', // Purple
                 ],
                 borderWidth: 1,
@@ -126,5 +132,5 @@ const PieChartWithLabels = () => {
     );
 };
 
-export default PieChartWithLabels;
+export default Tokenomics;
 ``
