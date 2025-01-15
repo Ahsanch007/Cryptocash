@@ -18,7 +18,7 @@ const Timeline = () => {
         const updateItemsToShow = () => {
             const width = window.innerWidth;
             if (width < 768) {
-                setItemsToShow(1); // Show 1 item on mobile screens
+                setItemsToShow(2); // Show 1 item on mobile screens
             } else {
                 setItemsToShow(5); // Show multiple items on larger screens
             }
@@ -68,7 +68,7 @@ const Timeline = () => {
             <div className="relative flex items-center justify-between">
                 {/* Background Line */}
                 <div className="absolute top-[19%] sm:top-[17%] left-0 h-1 w-full bg-[#fff3] transform -translate-y-1/2"></div>
-                <div className={`absolute top-[19%] sm:top-[17%] ${activeIndex ? 'w-full' : 'w-[45%]'}  lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300`}></div>
+                <div className={`absolute top-[19%] sm:top-[17%] ${activeIndex === 3 ? 'w-[22%]' : activeIndex ? 'w-[70%]' : 'w-[20%]'}  lg:w-[70%] left-0 h-1 bg-[#ff69c9] transform -translate-y-1/2 transition-all duration-300`}></div>
 
                 {/* Timeline Items */}
                 {timelineData.slice(activeIndex, activeIndex + itemsToShow).map((item, index) => (
@@ -91,14 +91,17 @@ const Timeline = () => {
                         </div>
 
                         {/* Date */}
-                        <p className="mt-4 text-md font-bold text-white">{item.date}</p>
-                        <p className="text-sm sm:block text-white">{item.content}</p>
+                        <div className=" px-1">
+
+                            <p className="mt-4 text-sm md:text-md font-bold text-white">{item.date}</p>
+                            <p className="md:text-sm text-xs sm:block text-white">{item.content}</p>
+                        </div>
 
                         {/* Content Box */}
                         {index + activeIndex === 3 && (
-                            <div className="absolute mt-12 p-4 bg-[#ff69c9] text-white rounded-md shadow-lg">
-                                <h3 className="text-md font-bold">{item.date}</h3>
-                                <p className="text-sm text-white">{item.content}</p>
+                            <div className="absolute mt-12  p-2 md:p-4 bg-[#ff69c9] text-white rounded-md shadow-lg">
+                                <h3 className="text-sm md:text-md font-bold">{item.date}</h3>
+                                <p className="md:text-sm text-xs text-white">{item.content}</p>
                             </div>
                         )}
                     </div>
