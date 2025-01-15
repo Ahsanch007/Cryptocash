@@ -48,6 +48,8 @@ export const Header = () => {
         }));
 
         setNavItems(updatedNavItems);
+
+        setIsMenuOpen(false)
     };
     useEffect(() => {
         Aos.init();
