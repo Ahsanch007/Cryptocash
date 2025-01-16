@@ -3,25 +3,31 @@ import Aos from 'aos';
 import React, { useEffect } from 'react'
 import { FaFacebookF, FaGooglePlusG, FaLinkedinIn, FaPinterest, FaTwitter } from 'react-icons/fa'
 import { IoIosSend } from 'react-icons/io';
-const quickLinks = [
-    { name: "Home", href: "#" },
-    { name: "Services", href: "#" },
-    { name: "Tokens", href: "#" },
-    { name: "Team", href: "#" },
-    { name: "Contact", href: "#" },
-];
-
-const supportLinks = [
-    { name: "Documentation", href: "#" },
-    { name: "IOS & Android Apps", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Support Forum", href: "#" },
-    { name: "Terms Conditions", href: "#" },
-];
-export const Footer = () => {
+interface Link {
+    name: string
+    href: string
+  }
+  
+  const quickLinks: Link[] = [
+    { name: 'Home', href: '#' },
+    { name: 'Services', href: '#' },
+    { name: 'Tokens', href: '#' },
+    { name: 'Team', href: '#' },
+    { name: 'Contact', href: '#' },
+  ]
+  
+  const supportLinks: Link[] = [
+    { name: 'Documentation', href: '#' },
+    { name: 'IOS & Android Apps', href: '#' },
+    { name: 'Privacy Policy', href: '#' },
+    { name: 'Support Forum', href: '#' },
+    { name: 'Terms Conditions', href: '#' },
+  ]
+  
+  export const Footer: React.FC = () => {
     useEffect(() => {
-        Aos.init();
-    }, []);
+      Aos.init()
+    }, [])
     return (
         <div className='bg-gradient-2'>
             <div className="py-[30px] lg:py-[100px]">

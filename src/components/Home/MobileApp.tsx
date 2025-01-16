@@ -4,7 +4,13 @@ import React, { useEffect } from 'react'
 import { FaApple, FaCodepen, FaMobileAlt } from 'react-icons/fa'
 import { IoLogoAndroid } from 'react-icons/io';
 import { MdOutlineShoppingCart } from "react-icons/md";
-const features = [
+
+interface Feature {
+    icon: any;
+    title: string;
+    description: string;
+}
+const features: Feature[] = [
     {
         icon: <FaMobileAlt />,
         title: "Different devices compatible",
@@ -21,7 +27,7 @@ const features = [
         description: "If you are going to use a passage of device, you need to be sure there isn't anything middle of text.",
     },
 ];
-export const MobileApp = () => {
+export const MobileApp: React.FC = () => {
     useEffect(() => {
         Aos.init();
     }, []);

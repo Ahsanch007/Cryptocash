@@ -1,41 +1,41 @@
-'use client';
-import React, { useState } from "react";
+"use client";
+import React, { useState, MouseEvent } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { MdClose } from "react-icons/md"; // React Icon for close button
 
-const images = [
+const images: string[] = [
     "/assets/image1.png", // Replace with your image paths
-    "/assets/image2.png",
+    "/assets/2.png",
     "/assets/image3.png",
 ];
 
-const ImageSlider = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const ImageSlider: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-    const handlePrev = () => {
+    const handlePrev = (): void => {
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? images.length - 1 : prevIndex - 1
         );
     };
 
-    const handleNext = () => {
+    const handleNext = (): void => {
         setCurrentIndex((prevIndex) =>
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
         );
     };
 
-    const openModal = (index) => {
+    const openModal = (index: number): void => {
         setCurrentIndex(index);
         setIsModalOpen(true);
     };
 
-    const closeModal = () => {
+    const closeModal = (): void => {
         setIsModalOpen(false);
     };
 
-    const handleBackdropClick = (e) => {
-        if (e.target.id === "modal-backdrop") {
+    const handleBackdropClick = (e: MouseEvent<HTMLDivElement>): void => {
+        if ((e.target as HTMLDivElement).id === "modal-backdrop") {
             closeModal();
         }
     };
@@ -91,7 +91,7 @@ const ImageSlider = () => {
                         <img
                             src={images[currentIndex]}
                             alt={`Fullscreen Slide ${currentIndex + 1}`}
-                            className="max-w-[700px] h-[600px]  2xl:h-[800px] object-contain"
+                            className="max-w-[700px] h-[600px] 2xl:h-[800px] object-contain"
                         />
                         {/* Close Button */}
                         <button

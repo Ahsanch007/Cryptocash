@@ -6,6 +6,7 @@ import {
     Legend,
     ResponsiveContainer,
     Tooltip,
+    PieLabelRenderProps
 } from 'recharts';
 
 const data = [
@@ -31,10 +32,10 @@ const COLORS = [
 ];
 
 // Function to break long labels into two lines
-const splitLabel = (text, maxLineLength) => {
+const splitLabel = (text: string, maxLineLength: number): string[] => {
     if (text.length <= maxLineLength) return [text];
     const words = text.split(' ');
-    const lines = [];
+    const lines: string[] = [];
     let currentLine = '';
 
     words.forEach((word) => {
@@ -51,11 +52,21 @@ const splitLabel = (text, maxLineLength) => {
 };
 
 // Custom label renderer
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, name }) => {
+const renderCustomLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    percent = 0, // Default percent to 0 if undefined
+    name
+}: PieLabelRenderProps) => {
     const RADIAN = Math.PI / 180;
-    const radius = innerRadius + (outerRadius - innerRadius) * 1.2; // Adjust label position
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    // Explicitly convert to number and provide fallback values if undefined
+    const radius = (Number(innerRadius) || 0) + (Number(outerRadius) || 0 - Number(innerRadius) || 0) * 1.2; // Adjust label position
+    const x = (Number(cx) || 0) + radius * Math.cos(-midAngle * RADIAN);
+    const y = (Number(cy) || 0) + radius * Math.sin(-midAngle * RADIAN);
 
     const lines = splitLabel(name, 20); // Break the label text into lines
 
@@ -64,7 +75,7 @@ const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent
             x={x}
             y={y}
             fill="black"
-            textAnchor={x > cx ? 'start' : 'end'}
+            textAnchor={x > (Number(cx) || 0) ? 'start' : 'end'}
             dominantBaseline="central"
             fontSize="12"
         >
@@ -80,7 +91,7 @@ const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent
     );
 };
 
-const TokenomicsRecharts = () => {
+const TokenomicsRecharts: React.FC = () => {
     return (
         <ResponsiveContainer width="100%" height={400}>
             <PieChart>

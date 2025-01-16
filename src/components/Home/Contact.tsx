@@ -5,7 +5,7 @@ import { FaArrowRight, FaGlobeAfrica, FaPhoneAlt, FaTelegramPlane } from 'react-
 import { IoMdMail } from 'react-icons/io'
 import Aos from 'aos'
 
-export const Contact = () => {
+export const Contact: React.FC = () => {
     useEffect(() => {
         Aos.init();
     }, []);
@@ -35,7 +35,7 @@ export const Contact = () => {
                                         <input type="email" placeholder='Enter Name *' name="email" id="email" className='border border-[#7a7a7a] rounded-[5px] w-full outline-none bg-white py-3 h-[38px] px-[15px] text-[#495057] ' />
                                     </div>
                                     <div className="form-group mb-[1rem]" data-aos="fade-up" data-aos-duration='2100'>
-                                        <textarea type="text" placeholder='Message *' name="description" id="description" className='border border-[#7a7a7a] rounded-[5px] w-full outline-none bg-white py-3   px-[15px] text-[#495057] ' >
+                                        <textarea   placeholder='Message *' name="description" id="description" className='border border-[#7a7a7a] rounded-[5px] w-full outline-none bg-white py-3   px-[15px] text-[#495057] ' >
                                         </textarea>
                                     </div>
                                     <button data-aos="fade-up" data-aos-duration='2300' className='btn bg-gradient-custom2 rounded-[40px] flex gap-2 items-center'>

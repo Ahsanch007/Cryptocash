@@ -1,8 +1,13 @@
 'use client'
 import React, { useEffect, useRef } from "react";
 
-const Modal = ({ isOpen, onClose }) => {
-    const modalRef = useRef(null);
+interface ModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+    const modalRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         // Add or remove the scroll-lock class based on the modal state
@@ -19,8 +24,8 @@ const Modal = ({ isOpen, onClose }) => {
     }, [isOpen]);
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (modalRef.current && !modalRef.current.contains(event.target)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
                 onClose();
             }
         };

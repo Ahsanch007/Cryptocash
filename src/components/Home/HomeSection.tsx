@@ -5,45 +5,35 @@ import { FaCcMastercard, FaCcVisa, FaFacebookF, FaFileWord, FaGithub, FaInstagra
 import { BiLogoMediumOld } from "react-icons/bi";
 import { IoLogoBitcoin } from "react-icons/io";
 import { FaBitcoinSign } from "react-icons/fa6";
-import Aos from 'aos';
+ 
 import { Timer } from '../ui/Timer';
+import * as Aos from 'aos';
 
+interface SocialIcon {
+    icon: React.ReactNode;
+}
 
-const social = [
-    {
-        icon: <FaFacebookF />
-    },
-    {
-        icon: <FaTwitter />
-    },
-    {
-        icon: <FaPinterestP />
-    },
-    {
-        icon: <FaGithub />
-    },
-    {
-        icon: <FaInstagram />
-    },
-    {
-        icon: <BiLogoMediumOld />
-    },
-    {
-        icon: <IoLogoBitcoin />
-    },
-]
+const social: SocialIcon[] = [
+    { icon: <FaFacebookF /> },
+    { icon: <FaTwitter /> },
+    { icon: <FaPinterestP /> },
+    { icon: <FaGithub /> },
+    { icon: <FaInstagram /> },
+    { icon: <BiLogoMediumOld /> },
+    { icon: <IoLogoBitcoin /> },
+];
 
-export const HomeSection = () => {
+export const HomeSection: React.FC = () => {
     useEffect(() => {
         const canvasAnimation = () => {
-            const canvas = document.getElementById('banner_canvas');
+            const canvas = document.getElementById('banner_canvas') as HTMLCanvasElement;
             const ctx = canvas.getContext('2d');
             const arc = 200;
             const size = 7;
             const speed = 20;
             const colors = ['#FFC56E', '#FF6CC6', '#4241B8', '#F69040', '#0EADC9'];
             const mouse = { x: 0, y: 0 };
-            const parts = [];
+            const parts: { x: number, y: number, toX: number, toY: number, c: string, size: number }[] = [];
 
             const resizeCanvas = () => {
                 canvas.width = canvas.offsetWidth;
@@ -64,23 +54,23 @@ export const HomeSection = () => {
                 });
             }
 
-            const DistanceBetween = (p1, p2) => {
+            const DistanceBetween = (p1: { x: number, y: number }, p2: { x: number, y: number }) => {
                 const dx = p2.x - p1.x;
                 const dy = p2.y - p1.y;
                 return Math.sqrt(dx * dx + dy * dy);
             };
 
             const drawParticles = () => {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx?.clearRect(0, 0, canvas.width, canvas.height);
                 parts.forEach((li) => {
                     const distanceFactor = Math.max(
                         Math.min(10 - DistanceBetween(mouse, li) / 10, 10),
                         1
                     );
-                    ctx.beginPath();
-                    ctx.arc(li.x, li.y, li.size * distanceFactor, 0, Math.PI * 2, false);
-                    ctx.fillStyle = li.c;
-                    ctx.fill();
+                    ctx?.beginPath();
+                    ctx?.arc(li.x, li.y, li.size * distanceFactor, 0, Math.PI * 2, false);
+                    ctx!.fillStyle = li.c;
+                    ctx!.fill();
 
                     li.x += li.toX * (speed * 0.05);
                     li.y += li.toY * (speed * 0.05);
@@ -94,7 +84,7 @@ export const HomeSection = () => {
                 requestAnimationFrame(drawParticles);
             };
 
-            const onMouseMove = (e) => {
+            const onMouseMove = (e: MouseEvent) => {
                 mouse.x = e.clientX;
                 mouse.y = e.clientY;
             };
@@ -112,76 +102,10 @@ export const HomeSection = () => {
         canvasAnimation();
     }, []);
 
-    // useEffect(() => {
-    //     const canvasAnimation = () => {
-    //         const w = window.innerWidth; // Get the window width
-    //         const h = window.innerHeight; // Get the window height
-    //         const canvas = document.getElementById('banner_canvas'); // Get the canvas element
-    //         const ctx = canvas.getContext('2d'); // Get the 2D context of the canvas
-    //         const arc = 200; // Number of particles
-    //         const size = 7; // Max size of the particles
-    //         const speed = 20; // Speed of the particles
-    //         const colors = ['#FFC56E', '#FF6CC6', '#4241B8', '#F69040', '#0EADC9']; // Particle colors
-    //         const parts = []; // Array to hold particle data
-
-    //         canvas.width = w; // Set canvas width
-    //         canvas.height = h; // Set canvas height
-
-    //         // Initialize particles with random positions and properties
-    //         for (let i = 0; i < arc; i++) {
-    //             parts.push({
-    //                 x: Math.ceil(Math.random() * w),
-    //                 y: Math.ceil(Math.random() * h),
-    //                 toX: Math.random() * 5 - 1,
-    //                 toY: Math.random() * 2 - 1,
-    //                 c: colors[Math.floor(Math.random() * colors.length)],
-    //                 size: Math.random() * size,
-    //             });
-    //         }
-
-    //         // Function to calculate distance between two points
-    //         const DistanceBetween = (p1, p2) => {
-    //             const dx = p2.x - p1.x;
-    //             const dy = p2.y - p1.y;
-    //             return Math.sqrt(dx * dx + dy * dy);
-    //         };
-
-    //         // Function to draw particles and animate them
-    //         const drawParticles = () => {
-    //             ctx.clearRect(0, 0, w, h); // Clear canvas for next frame
-
-    //             // Loop through each particle to animate it
-    //             parts.forEach((li) => {
-    //                 // Draw the particle
-    //                 ctx.beginPath();
-    //                 ctx.arc(li.x, li.y, li.size, 0, Math.PI * 2, false);
-    //                 ctx.fillStyle = li.c; // Set color
-    //                 ctx.fill(); // Fill the particle
-
-    //                 // Update the particle's position
-    //                 li.x += li.toX * (speed * 0.05);
-    //                 li.y += li.toY * (speed * 0.05);
-
-    //                 // Wrap particles around the canvas if they go out of bounds
-    //                 if (li.x > w) li.x = 0;
-    //                 if (li.y > h) li.y = 0;
-    //                 if (li.x < 0) li.x = w;
-    //                 if (li.y < 0) li.y = h;
-    //             });
-
-    //             // Request the next frame to keep animating
-    //             requestAnimationFrame(drawParticles);
-    //         };
-
-    //         // Start the particle animation
-    //         drawParticles();
-    //     };
-
-    //     canvasAnimation();
-    // }, []);
     useEffect(() => {
         Aos.init();
     }, []);
+
     return (
         <div className="section_gradiant3 section_banner relative">
             <div className="loggo absolute top-2 left-2">

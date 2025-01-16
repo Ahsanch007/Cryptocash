@@ -4,55 +4,61 @@ import React, { useEffect, useState } from 'react'
 import { FaChevronDown, FaTelegramPlane } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-
-export const Header = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    const [navItems, setNavItems] = useState([
-        { id: 1, name: 'Home', active: true, path: '#home_section', duration: '1100' },
-        { id: 2, name: 'About', active: false, path: '#about', duration: '1200' },
-        { id: 3, name: 'Why', active: false, path: '#why', duration: '1300' },
-        { id: 4, name: 'Token', active: false, path: '#token', duration: '1400' },
-        { id: 5, name: 'Roadmap', active: false, path: '#roadmap', duration: '1500' },
-        { id: 6, name: 'Team', active: false, path: '#team', duration: '1600' },
-        { id: 7, name: 'Faq', active: false, path: '#faq', duration: '1700' },
-        { id: 8, name: 'Contact', active: false, path: '#contact', duration: '1800' },
-        { id: 9, name: 'Telegram', active: false, path: '', duration: '1900' },
+interface NavItem {
+    id: number;
+    name: string;
+    active: boolean;
+    path: string;
+    duration: string;
+  }
+  
+  export const Header: React.FC = () => {
+    const [scrolled, setScrolled] = useState<boolean>(false);
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [navItems, setNavItems] = useState<NavItem[]>([
+      { id: 1, name: 'Home', active: true, path: '#home_section', duration: '1100' },
+      { id: 2, name: 'About', active: false, path: '#about', duration: '1200' },
+      { id: 3, name: 'Why', active: false, path: '#why', duration: '1300' },
+      { id: 4, name: 'Token', active: false, path: '#token', duration: '1400' },
+      { id: 5, name: 'Roadmap', active: false, path: '#roadmap', duration: '1500' },
+      { id: 6, name: 'Team', active: false, path: '#team', duration: '1600' },
+      { id: 7, name: 'Faq', active: false, path: '#faq', duration: '1700' },
+      { id: 8, name: 'Contact', active: false, path: '#contact', duration: '1800' },
+      { id: 9, name: 'Telegram', active: false, path: '', duration: '1900' },
     ]);
-
-    const handleNavItemClick = (item) => {
-        if (item.path) {
-            // Scroll to the section
-            const element = document.querySelector(item.path);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Set the clicked item as active and others as inactive
-        const updatedNavItems = navItems.map(navItem => ({
-            ...navItem,
-            active: navItem.id === item.id
-        }));
-
-        setNavItems(updatedNavItems);
-
-        setIsMenuOpen(false)
-    };
+  
     useEffect(() => {
-        Aos.init();
+      const handleScroll = () => {
+        setScrolled(window.scrollY > 50);
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+  
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+  
+    const handleNavItemClick = (item: NavItem) => {
+      if (item.path) {
+        const element = document.querySelector(item.path);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+  
+      const updatedNavItems = navItems.map(navItem => ({
+        ...navItem,
+        active: navItem.id === item.id
+      }));
+  
+      setNavItems(updatedNavItems);
+  
+      setIsMenuOpen(false);
+    };
+  
+    useEffect(() => {
+      Aos.init();
     }, []);
     return (
         <>

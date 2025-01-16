@@ -1,5 +1,5 @@
 'use client'
-import Aos from 'aos';
+import * as Aos from 'aos';
 import React, { useEffect } from 'react'
 
 const data = [

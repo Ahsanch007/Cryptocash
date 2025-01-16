@@ -3,8 +3,20 @@ import Aos from 'aos';
 import React, { useEffect } from 'react'
 import { FaFacebookF, FaLinkedinIn, FaPinterestP, FaTwitter } from 'react-icons/fa'
 
+interface SocialLink {
+    url: string;
+    label: string;
+    icon: any;
+}
 
-const teamMembers = [
+interface TeamMember {
+    name: string;
+    title: string;
+    imgSrc: string;
+    socialLinks: SocialLink[];
+    duration: string;
+}
+const teamMembers: TeamMember[] = [
     {
         name: 'Dom Einhorn',
         title: 'Founder',
@@ -58,9 +70,16 @@ const teamMembers = [
     },
 ];
 
+interface TeamMemberCardProps {
+    name: string;
+    title: string;
+    imgSrc: string;
+    socialLinks: SocialLink[];
+    duration: string;
+}
 
 
-const TeamMemberCard = ({ name, title, imgSrc, socialLinks, duration }) => {
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ name, title, imgSrc, socialLinks, duration }) => {
     return (
         <div className="bg-white rounded-[5px] p-[20px]" data-aos="fade-up" data-aos-duration={duration} >
             <div className="text-center relative">

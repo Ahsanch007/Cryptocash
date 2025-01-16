@@ -24,13 +24,16 @@ export const metadata = {
   description: "Free online trivia quizes - Master of Trivia",
 };
 
+// Define the type for RootLayout props
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
 // Root layout component
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body
-        className={`  ${poppins.variable}`}
-      >
+      <body className={`${poppins.variable}`}>
         {children}
       </body>
     </html>

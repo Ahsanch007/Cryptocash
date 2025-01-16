@@ -9,8 +9,7 @@ import { Team } from "@/components/Home/Team";
 import { MobileApp } from "@/components/Home/MobileApp";
 import { FaqSection } from "@/components/Home/FaqSection";
 import { Contact } from "@/components/Home/Contact";
-import { Client } from "@/components/Home/Client";
-import { Footer } from "@/components/MainLayout/Footer";
+ 
 import { Layout } from "@/components/MainLayout/layout";
 import { FaChevronUp } from "react-icons/fa";
 import "aos/dist/aos.css";

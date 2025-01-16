@@ -4,21 +4,28 @@ import { FaCcMastercard, FaCcVisa, FaFacebookF, FaFileWord, FaGithub, FaInstagra
 import { FaBitcoinSign } from "react-icons/fa6";
 import Modal from './Modal';
 
-export const Timer = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [timeLeft, setTimeLeft] = useState({
-        days: "00",
-        hours: "00",
-        minutes: "00",
-        seconds: "00",
+interface TimeLeft {
+    days: string;
+    hours: string;
+    minutes: string;
+    seconds: string;
+}
+
+export const Timer: React.FC = () => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+        days: '00',
+        hours: '00',
+        minutes: '00',
+        seconds: '00',
     });
 
     useEffect(() => {
-        const targetDate = new Date("2025-01-31T00:00:00"); // Set your target date here
+        const targetDate = new Date('2025-01-31T00:00:00'); // Set your target date here
 
         const calculateTimeLeft = () => {
             const now = new Date();
-            const difference = targetDate - now;
+            const difference = targetDate.getTime() - now.getTime();
 
             if (difference > 0) {
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -27,18 +34,18 @@ export const Timer = () => {
                 const seconds = Math.floor((difference / 1000) % 60);
 
                 setTimeLeft({
-                    days: String(days).padStart(2, "0"),
-                    hours: String(hours).padStart(2, "0"),
-                    minutes: String(minutes).padStart(2, "0"),
-                    seconds: String(seconds).padStart(2, "0"),
+                    days: String(days).padStart(2, '0'),
+                    hours: String(hours).padStart(2, '0'),
+                    minutes: String(minutes).padStart(2, '0'),
+                    seconds: String(seconds).padStart(2, '0'),
                 });
             } else {
                 // If the countdown has ended
                 setTimeLeft({
-                    days: "00",
-                    hours: "00",
-                    minutes: "00",
-                    seconds: "00",
+                    days: '00',
+                    hours: '00',
+                    minutes: '00',
+                    seconds: '00',
                 });
             }
         };
@@ -47,11 +54,12 @@ export const Timer = () => {
 
         return () => clearInterval(timer); // Cleanup the interval on component unmount
     }, []);
-    const handleOpenModal = () => {
+
+    const handleOpenModal = (): void => {
         setIsModalOpen(true);
     };
 
-    const handleCloseModal = () => {
+    const handleCloseModal = (): void => {
         setIsModalOpen(false);
     };
     return (
